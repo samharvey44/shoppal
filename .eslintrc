@@ -1,0 +1,14 @@
+{
+    "extends": ["react-app", "plugin:react-hooks/recommended"],
+    "rules": {
+        "import/order": ["error"]
+    },
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    }
+}

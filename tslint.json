@@ -1,0 +1,20 @@
+{
+    "extends": ["tslint:recommended", "tslint-config-prettier"],
+    "rules": {
+        "ordered-imports": false,
+        "array-type": false,
+        "no-console": false,
+        "quotemark": [true, "single"],
+        "object-literal-sort-keys": false,
+        "object-literal-key-quotes": false,
+        "semicolon": [true, "always", "ignore-bound-class-methods"],
+        "member-ordering": [
+            true,
+            {
+                "order": "constructor-first"
+            }
+        ],
+        "no-var-requires": false,
+        "prefer-for-of": false
+    }
+}
