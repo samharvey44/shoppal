@@ -1,10 +1,10 @@
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { useSnackbar } from "notistack";
-import React, { useState } from "react";
 
 import { API, cupboard } from "../../config/globals";
 import useLoginUser from "../../hooks/user/login";
@@ -14,6 +14,7 @@ import api from "../../services/api";
 const Login: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const login = useLoginUser();
 
     const { enqueueSnackbar } = useSnackbar();
 
@@ -40,17 +41,12 @@ const Login: React.FC = () => {
         )
             .then(({ data }) => {
                 cupboard.set(cupboard.KEYS.AUTH, data);
-                useLoginUser();
+
+                login();
             })
 
-            .catch((error) => {
-                if (error.response.status === 400) {
-                    enqueueSnackbar("Incorrect login details.", {
-                        variant: "error",
-                    });
-                } else {
-                    enqueueSnackbar("Login failed.", { variant: "error" });
-                }
+            .catch(() => {
+                enqueueSnackbar("Login failed.", { variant: "error" });
             });
     };
 

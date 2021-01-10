@@ -16272,8 +16272,13 @@ Object.defineProperty(exports, "__esModule", ({
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var logout_1 = __importDefault(__webpack_require__(/*! ../../hooks/user/logout */ "./resources/js/hooks/user/logout/index.ts"));
+
 var Dashboard = function Dashboard() {
-  return react_1["default"].createElement("p", null, "dashboard");
+  var logout = logout_1["default"];
+  return react_1["default"].createElement("button", {
+    onClick: logout()
+  }, "dashboard");
 };
 
 exports.default = Dashboard;
@@ -16353,6 +16358,8 @@ var Typography_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Typ
 
 var TextField_1 = __importDefault(__webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js"));
 
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
 var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
 
 var Paper_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js"));
@@ -16360,8 +16367,6 @@ var Paper_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Paper */
 var Grid_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js"));
 
 var notistack_1 = __webpack_require__(/*! notistack */ "./node_modules/notistack/dist/notistack.esm.js");
-
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var globals_1 = __webpack_require__(/*! ../../config/globals */ "./resources/js/config/globals.ts");
 
@@ -16380,6 +16385,7 @@ var Login = function Login() {
       password = _b[0],
       setPassword = _b[1];
 
+  var login = login_1["default"]();
   var enqueueSnackbar = notistack_1.useSnackbar().enqueueSnackbar;
 
   var emailChangeHandler = function emailChangeHandler(e) {
@@ -16400,17 +16406,11 @@ var Login = function Login() {
     }).then(function (_a) {
       var data = _a.data;
       globals_1.cupboard.set(globals_1.cupboard.KEYS.AUTH, data);
-      login_1["default"]();
-    })["catch"](function (error) {
-      if (error.response.status === 400) {
-        enqueueSnackbar("Incorrect login details.", {
-          variant: "error"
-        });
-      } else {
-        enqueueSnackbar("Login failed.", {
-          variant: "error"
-        });
-      }
+      login();
+    })["catch"](function () {
+      enqueueSnackbar("Login failed.", {
+        variant: "error"
+      });
     });
   };
 
