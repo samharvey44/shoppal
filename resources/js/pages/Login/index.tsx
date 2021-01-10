@@ -60,20 +60,67 @@ const Login: React.FC = () => {
                 <Paper
                     elevation={3}
                     style={{
-                        height: "600px",
+                        height: "400px",
                         marginTop: "15%",
                         marginLeft: "20%",
                         marginBottom: "3%",
                     }}
                 >
-                    <div></div>
+                    <div style={{ marginLeft: "5%", paddingTop: "3%" }}>
+                        <Typography variant="h2">Sign In</Typography>
+                    </div>
+                    <br />
+                    <div
+                        style={{
+                            marginLeft: "10%",
+                            paddingTop: "3%",
+                        }}
+                    >
+                        <TextField
+                            label="Email"
+                            name="email"
+                            type="email"
+                            style={{ width: "50%" }}
+                            value={email}
+                            onChange={emailChangeHandler}
+                        />
+                        <br />
+                        <br />
+                        <TextField
+                            label="Password"
+                            name="password"
+                            type="password"
+                            style={{ width: "50%" }}
+                            value={password}
+                            onChange={passwordChangeHandler}
+                        />
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div
+                        style={{
+                            display: "flex",
+                            marginLeft: "10%",
+                        }}
+                    >
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            style={{ outline: "none" }}
+                            onClick={signinHandler}
+                        >
+                            Sign in
+                        </Button>
+                    </div>
                 </Paper>
             </Grid>
+
             <Grid item xs={6}>
                 <Paper
                     elevation={3}
                     style={{
-                        height: "600px",
+                        height: "400px",
                         marginTop: "15%",
                         marginRight: "20%",
                         marginBottom: "3%",
@@ -84,7 +131,7 @@ const Login: React.FC = () => {
                     </div>
                     <div style={{ marginLeft: "5%", paddingTop: "3%" }}>
                         <Typography variant="h5">
-                            Welcome to the shopping list application.
+                            Welcome to ShopPal.
                         </Typography>
                         <br />
                         <br />

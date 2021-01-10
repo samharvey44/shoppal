@@ -1,3 +1,4 @@
+import LinearProgress from "@material-ui/core/LinearProgress";
 import { BrowserRouter } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 import { RecoilRoot } from "recoil";
@@ -17,7 +18,7 @@ const Main: React.FC = () => {
             <RecoilRoot>
                 <SnackbarProvider maxSnack={3} anchorOrigin={anchorOrigin}>
                     <AuthGate>
-                        {(ready) => (ready ? <Router /> : <p>loading...</p>)}
+                        {(ready) => (ready ? <Router /> : <LinearProgress />)}
                     </AuthGate>
                 </SnackbarProvider>
             </RecoilRoot>

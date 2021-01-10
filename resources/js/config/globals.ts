@@ -12,7 +12,7 @@ export const DEBUG: boolean = true;
  *
  * @var {Cupboard}
  */
-export const cupboard: Cupboard = new Cupboard("herobattle", {
+export const cupboard: Cupboard = new Cupboard("shoppal", {
     auth: null,
 });
 
