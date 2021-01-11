@@ -1,10 +1,11 @@
 import LinearProgress from "@material-ui/core/LinearProgress";
+import { RecoilRoot } from "recoil";
 import { BrowserRouter } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
-import { RecoilRoot } from "recoil";
 import React from "react";
 
 import AuthGate from "./components/gates/AuthGate";
+import NavBar from "./components/layout/Navbar";
 import Router from "./router";
 
 const Main: React.FC = () => {
@@ -18,7 +19,16 @@ const Main: React.FC = () => {
             <RecoilRoot>
                 <SnackbarProvider maxSnack={3} anchorOrigin={anchorOrigin}>
                     <AuthGate>
-                        {(ready) => (ready ? <Router /> : <LinearProgress />)}
+                        {(ready) =>
+                            ready ? (
+                                <React.Fragment>
+                                    <NavBar />
+                                    <Router />
+                                </React.Fragment>
+                            ) : (
+                                <LinearProgress />
+                            )
+                        }
                     </AuthGate>
                 </SnackbarProvider>
             </RecoilRoot>
