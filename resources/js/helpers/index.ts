@@ -29,3 +29,17 @@ export const toFormData = (data: any, stringifyNested = true) =>
 
         return acc;
     }, new FormData());
+
+export const timeOfDay = () => {
+    const time = new Date().getHours();
+
+    if (time > 0 && time < 12) {
+        return "morning";
+    }
+
+    if (time >= 12 && time < 17) {
+        return "afternoon";
+    }
+
+    return "evening";
+};

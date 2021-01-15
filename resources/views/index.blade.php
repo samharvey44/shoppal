@@ -17,7 +17,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
 
-    <body>
+    <body style="margin: 0">
         <div id="app" style="overflow-x: hidden"></div>
     </body>
 </html>

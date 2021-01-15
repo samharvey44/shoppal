@@ -6,32 +6,40 @@ import AppBar from "@material-ui/core/AppBar";
 import { Link } from "react-router-dom";
 import React from "react";
 
-const NavBar: React.FC = () => {
-    return (
-        <AppBar position="fixed">
-            <Toolbar>
-                <Link to="/dashboard">
-                    <Button
-                        startIcon={<StorefrontIcon />}
-                        size="large"
-                        variant="contained"
-                    >
-                        ShopPal
-                    </Button>
-                </Link>
+import useLogoutUser from "../../../hooks/user/logout";
 
-                <div style={{ display: "flex", width: "100%" }}>
-                    <Button
-                        startIcon={<MeetingRoomIcon />}
-                        size="large"
-                        variant="contained"
-                        style={{ marginLeft: "auto" }}
-                    >
-                        Logout
-                    </Button>
-                </div>
-            </Toolbar>
-        </AppBar>
+const NavBar: React.FC = ({ children }) => {
+    const logout = useLogoutUser;
+
+    return (
+        <React.Fragment>
+            <AppBar position="static" style={{ marginBottom: "25px" }}>
+                <Toolbar>
+                    <Link to="/dashboard">
+                        <Button
+                            startIcon={<StorefrontIcon />}
+                            size="large"
+                            variant="contained"
+                        >
+                            ShopPal
+                        </Button>
+                    </Link>
+
+                    <div style={{ display: "flex", width: "100%" }}>
+                        <Button
+                            onClick={logout()}
+                            startIcon={<MeetingRoomIcon />}
+                            size="large"
+                            variant="contained"
+                            style={{ marginLeft: "auto" }}
+                        >
+                            Logout
+                        </Button>
+                    </div>
+                </Toolbar>
+            </AppBar>
+            {children}
+        </React.Fragment>
     );
 };
 

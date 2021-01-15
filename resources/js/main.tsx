@@ -1,7 +1,7 @@
 import LinearProgress from "@material-ui/core/LinearProgress";
-import { RecoilRoot } from "recoil";
 import { BrowserRouter } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
+import { RecoilRoot } from "recoil";
 import React from "react";
 
 import AuthGate from "./components/gates/AuthGate";
@@ -22,8 +22,9 @@ const Main: React.FC = () => {
                         {(ready) =>
                             ready ? (
                                 <React.Fragment>
-                                    <NavBar />
-                                    <Router />
+                                    <NavBar>
+                                        <Router />
+                                    </NavBar>
                                 </React.Fragment>
                             ) : (
                                 <LinearProgress />
