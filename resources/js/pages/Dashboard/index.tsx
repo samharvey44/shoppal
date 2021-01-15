@@ -49,7 +49,10 @@ const Dashboard: React.FC = () => {
                                 alignItems="center"
                             >
                                 {isTablet ? (
-                                    <Typography variant="h3">
+                                    <Typography
+                                        variant="h3"
+                                        style={{ textAlign: "center" }}
+                                    >
                                         {`Good ${timeOfDay()}, ${
                                             user ? user.name + "." : ""
                                         }`}
@@ -352,21 +355,43 @@ const Dashboard: React.FC = () => {
 
                                 <hr />
                                 <hr />
-
-                                <div>
-                                    <Typography variant="h6">
-                                        ShopPal helps to simplify your shopping
-                                        trips by putting all of your lists in
-                                        one place.
-                                    </Typography>
-                                </div>
-                                <div>
-                                    <Typography variant="body1">
-                                        Let's make your shopping a breeze. Why
-                                        not start getting your list together for
-                                        your next big shop?
-                                    </Typography>
-                                </div>
+                                {isTablet ? (
+                                    <React.Fragment>
+                                        <div style={{ textAlign: "center" }}>
+                                            <Typography variant="h6">
+                                                ShopPal helps to simplify your
+                                                shopping trips by putting all of
+                                                your lists in one place.
+                                            </Typography>
+                                        </div>
+                                        <div style={{ textAlign: "center" }}>
+                                            <Typography variant="body1">
+                                                Let's make your shopping a
+                                                breeze. Why not start getting
+                                                your list together for your next
+                                                big shop?
+                                            </Typography>
+                                        </div>
+                                    </React.Fragment>
+                                ) : (
+                                    <React.Fragment>
+                                        <div>
+                                            <Typography variant="h6">
+                                                ShopPal helps to simplify your
+                                                shopping trips by putting all of
+                                                your lists in one place.
+                                            </Typography>
+                                        </div>
+                                        <div>
+                                            <Typography variant="body1">
+                                                Let's make your shopping a
+                                                breeze. Why not start getting
+                                                your list together for your next
+                                                big shop?
+                                            </Typography>
+                                        </div>
+                                    </React.Fragment>
+                                )}
                             </Grid>
                         </Paper>
                     </Grid>

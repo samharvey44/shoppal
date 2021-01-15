@@ -18437,7 +18437,10 @@ var Dashboard = function Dashboard() {
     justify: "center",
     alignItems: "center"
   }, isTablet ? react_1["default"].createElement(Typography_1["default"], {
-    variant: "h3"
+    variant: "h3",
+    style: {
+      textAlign: "center"
+    }
   }, "Good " + helpers_1.timeOfDay() + ", " + (user ? user.name + "." : "")) : react_1["default"].createElement(Typography_1["default"], {
     variant: "h2"
   }, "Good " + helpers_1.timeOfDay() + ", " + (user ? user.name + "." : "")), react_1["default"].createElement("hr", null), react_1["default"].createElement("hr", null), isTablet ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", null, react_1["default"].createElement(Card_1["default"], {
@@ -18620,11 +18623,23 @@ var Dashboard = function Dashboard() {
     variant: "h4"
   }, "Shopping Runs"), react_1["default"].createElement("hr", null), react_1["default"].createElement(Typography_1["default"], {
     variant: "h5"
-  }, "0"))))))), react_1["default"].createElement("hr", null), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", null, react_1["default"].createElement(Typography_1["default"], {
+  }, "0"))))))), react_1["default"].createElement("hr", null), react_1["default"].createElement("hr", null), isTablet ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Typography_1["default"], {
+    variant: "h6"
+  }, "ShopPal helps to simplify your shopping trips by putting all of your lists in one place.")), react_1["default"].createElement("div", {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Typography_1["default"], {
+    variant: "body1"
+  }, "Let's make your shopping a breeze. Why not start getting your list together for your next big shop?"))) : react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", null, react_1["default"].createElement(Typography_1["default"], {
     variant: "h6"
   }, "ShopPal helps to simplify your shopping trips by putting all of your lists in one place.")), react_1["default"].createElement("div", null, react_1["default"].createElement(Typography_1["default"], {
     variant: "body1"
-  }, "Let's make your shopping a breeze. Why not start getting your list together for your next big shop?"))))))));
+  }, "Let's make your shopping a breeze. Why not start getting your list together for your next big shop?")))))))));
 };
 
 exports.default = Dashboard;
