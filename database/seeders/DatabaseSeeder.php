@@ -16,6 +16,13 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
+            ShopSeeder::class,
+            BrandSeeder::class,
+            CategorySeeder::class,
+            ProductSeeder::class,
+            FavouriteSeeder::class,
+            ShoppingListSeeder::class,
+            ShoppingRunSeeder::class,
         ]);
 
         Artisan::call('passport:install');

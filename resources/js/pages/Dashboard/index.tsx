@@ -1,3 +1,4 @@
+import CircularProgress from "@material-ui/core/CircularProgress";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -6,21 +7,39 @@ import FastfoodIcon from "@material-ui/icons/Fastfood";
 import Typography from "@material-ui/core/Typography";
 import SubjectIcon from "@material-ui/icons/Subject";
 import { useTheme } from "@material-ui/core/styles";
+import React, { useEffect, useState } from "react";
 import Paper from "@material-ui/core/Paper";
 import Slide from "@material-ui/core/Slide";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import { useRecoilValue } from "recoil";
-import React from "react";
+import { useSnackbar } from "notistack";
 
 import { timeOfDay } from "../../helpers";
 import userAtom from "../../atoms/user";
+import api from "../../services/api";
+import { IData } from "./interfaces";
 
 const Dashboard: React.FC = () => {
+    const [data, setData] = useState<IData | null>(null);
+    const { enqueueSnackbar } = useSnackbar();
+
     const theme = useTheme();
     const isTablet = useMediaQuery(theme.breakpoints.down("sm"));
 
     const user = useRecoilValue(userAtom);
+
+    useEffect(() => {
+        api.get("/dashboard")
+            .then(({ data: { data: d } }) => {
+                setData(d);
+            })
+            .catch(() => {
+                enqueueSnackbar("Failed to get storage information.", {
+                    variant: "error",
+                });
+            });
+    }, [enqueueSnackbar]);
 
     return (
         <Slide direction="right" in>
@@ -107,7 +126,11 @@ const Dashboard: React.FC = () => {
                                                                 </Typography>
                                                                 <hr />
                                                                 <Typography variant="h5">
-                                                                    0
+                                                                    {data ? (
+                                                                        data.listCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
                                                                 </Typography>
                                                             </Grid>
                                                         </CardContent>
@@ -155,7 +178,11 @@ const Dashboard: React.FC = () => {
                                                                 </Typography>
                                                                 <hr />
                                                                 <Typography variant="h5">
-                                                                    0
+                                                                    {data ? (
+                                                                        data.productCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
                                                                 </Typography>
                                                             </Grid>
                                                         </CardContent>
@@ -204,7 +231,11 @@ const Dashboard: React.FC = () => {
                                                                 </Typography>
                                                                 <hr />
                                                                 <Typography variant="h5">
-                                                                    0
+                                                                    {data ? (
+                                                                        data.shoppingRunCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
                                                                 </Typography>
                                                             </Grid>
                                                         </CardContent>
@@ -257,7 +288,11 @@ const Dashboard: React.FC = () => {
                                                             </Typography>
                                                             <hr />
                                                             <Typography variant="h5">
-                                                                0
+                                                                {data ? (
+                                                                    data.listCount
+                                                                ) : (
+                                                                    <CircularProgress />
+                                                                )}
                                                             </Typography>
                                                         </Grid>
                                                     </CardContent>
@@ -300,7 +335,11 @@ const Dashboard: React.FC = () => {
                                                             </Typography>
                                                             <hr />
                                                             <Typography variant="h5">
-                                                                0
+                                                                {data ? (
+                                                                    data.productCount
+                                                                ) : (
+                                                                    <CircularProgress />
+                                                                )}
                                                             </Typography>
                                                         </Grid>
                                                     </CardContent>
@@ -343,7 +382,11 @@ const Dashboard: React.FC = () => {
                                                             </Typography>
                                                             <hr />
                                                             <Typography variant="h5">
-                                                                0
+                                                                {data ? (
+                                                                    data.shoppingRunCount
+                                                                ) : (
+                                                                    <CircularProgress />
+                                                                )}
                                                             </Typography>
                                                         </Grid>
                                                     </CardContent>

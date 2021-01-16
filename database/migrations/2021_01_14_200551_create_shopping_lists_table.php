@@ -17,11 +17,11 @@ class CreateShoppingListsTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->string('name')->nullable(false);
+            $table->string('name');
             $table->boolean('complete')->default(false);
-            $table->text('notes');
+            $table->text('notes')->nullable();
 
-            $table->bigInteger('shop_id')->unsigned();
+            $table->bigInteger('shop_id')->unsigned()->nullable();
             $table->bigInteger('user_id')->unsigned();
 
             $table->foreign('shop_id')->references('id')->on('shops');

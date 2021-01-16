@@ -17,7 +17,7 @@ class CreateFavouritesTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->string('nickname');
+            $table->string('nickname')->nullable();
 
             $table->bigInteger('product_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();

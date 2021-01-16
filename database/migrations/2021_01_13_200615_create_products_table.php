@@ -18,11 +18,11 @@ class CreateProductsTable extends Migration
             $table->timestamps();
 
             $table->string('name')->nullable(false);
-            $table->decimal('price', $precision = 8, $scale = 2);
+            $table->decimal('price', $precision = 8, $scale = 2)->nullable();
 
-            $table->bigInteger('category_id')->unsigned();
-            $table->bigInteger('shop_id')->unsigned();
-            $table->bigInteger('brand_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned()->nullable();
+            $table->bigInteger('shop_id')->unsigned()->nullable();
+            $table->bigInteger('brand_id')->unsigned()->nullable();
             $table->bigInteger('user_id')->unsigned();
 
             $table->foreign('category_id')->references('id')->on('categories');

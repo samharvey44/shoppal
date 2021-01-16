@@ -17,7 +17,7 @@ class CreateShopsTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->string('name')->nullable(false);
+            $table->string('name');
 
             $table->bigInteger('user_id')->unsigned();
 

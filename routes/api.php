@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,6 @@ use App\Http\Controllers\API\UserController;
 
 Route::middleware('auth:api')->group(function() {
     Route::get('/me', [UserController::class, 'me']);
+
+    Route::get('/dashboard', [DashboardController::class, 'index']);
 });

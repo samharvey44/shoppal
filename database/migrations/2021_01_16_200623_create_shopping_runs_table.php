@@ -17,9 +17,9 @@ class CreateShoppingRunsTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->string('name')->nullable(false);
-            $table->dateTime('started_at');
-            $table->dateTime('finished_at');
+            $table->string('name');
+            $table->dateTime('started_at')->nullable();
+            $table->dateTime('finished_at')->nullable();
 
             $table->bigInteger('shopping_list_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
