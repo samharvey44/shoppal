@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\DashboardController;
+use App\Http\Controllers\API\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,8 @@ Route::middleware('auth:api')->group(function() {
     Route::get('/me', [UserController::class, 'me']);
 
     Route::get('/dashboard', [DashboardController::class, 'index']);
+
+    Route::prefix('/account')->group(function() {
+        Route::get('/', [UserController::class, 'index']);
+    });
 });
