@@ -18117,6 +18117,51 @@ exports.default = recoil_1.atom({
 
 /***/ }),
 
+/***/ "./resources/js/components/buttons/Logout/index.tsx":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/buttons/Logout/index.tsx ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var MeetingRoom_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/MeetingRoom */ "./node_modules/@material-ui/icons/MeetingRoom.js"));
+
+var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var logout_1 = __importDefault(__webpack_require__(/*! ../../../hooks/user/logout */ "./resources/js/hooks/user/logout/index.ts"));
+
+var Logout = function Logout() {
+  var logout = logout_1["default"];
+  return react_1["default"].createElement(Button_1["default"], {
+    onClick: logout(),
+    startIcon: react_1["default"].createElement(MeetingRoom_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "8px",
+      outline: "none"
+    }
+  }, "Logout");
+};
+
+exports.default = Logout;
+
+/***/ }),
+
 /***/ "./resources/js/components/gates/AuthGate/index.tsx":
 /*!**********************************************************!*\
   !*** ./resources/js/components/gates/AuthGate/index.tsx ***!
@@ -18185,7 +18230,9 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
-var MeetingRoom_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/MeetingRoom */ "./node_modules/@material-ui/icons/MeetingRoom.js"));
+var CircularProgress_1 = __importDefault(__webpack_require__(/*! @material-ui/core/CircularProgress */ "./node_modules/@material-ui/core/esm/CircularProgress/index.js"));
+
+var useMediaQuery_1 = __importDefault(__webpack_require__(/*! @material-ui/core/useMediaQuery */ "./node_modules/@material-ui/core/esm/useMediaQuery/index.js"));
 
 var AccountBox_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/AccountBox */ "./node_modules/@material-ui/icons/AccountBox.js"));
 
@@ -18197,53 +18244,63 @@ var Fastfood_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Fast
 
 var Subject_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Subject */ "./node_modules/@material-ui/icons/Subject.js"));
 
+var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+
 var Toolbar_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Toolbar */ "./node_modules/@material-ui/core/esm/Toolbar/index.js"));
 
 var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
 
 var AppBar_1 = __importDefault(__webpack_require__(/*! @material-ui/core/AppBar */ "./node_modules/@material-ui/core/esm/AppBar/index.js"));
 
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Grid_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js"));
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
-var logout_1 = __importDefault(__webpack_require__(/*! ../../../hooks/user/logout */ "./resources/js/hooks/user/logout/index.ts"));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Logout_1 = __importDefault(__webpack_require__(/*! ../../buttons/Logout */ "./resources/js/components/buttons/Logout/index.tsx"));
 
 var NavBar = function NavBar(_a) {
   var page = _a.page,
       children = _a.children;
-  var logout = logout_1["default"];
-  return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(AppBar_1["default"], {
+  var theme = styles_1.useTheme();
+  var isPhone = useMediaQuery_1["default"](theme.breakpoints.down("xs"));
+  var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  return react_1["default"].createElement(react_1["default"].Fragment, null, page ? react_1["default"].createElement(AppBar_1["default"], {
     position: "static",
     style: {
       marginBottom: "25px"
     }
-  }, react_1["default"].createElement(Toolbar_1["default"], null, react_1["default"].createElement(react_router_dom_1.Link, {
+  }, react_1["default"].createElement(Toolbar_1["default"], {
+    style: {
+      paddingLeft: isPhone ? "6px" : isTablet ? "8px" : undefined
+    }
+  }, react_1["default"].createElement(react_router_dom_1.Link, {
     to: "/dashboard"
   }, react_1["default"].createElement(Button_1["default"], {
-    startIcon: react_1["default"].createElement(Storefront_1["default"], null),
+    startIcon: isPhone ? null : react_1["default"].createElement(Storefront_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
       outline: "none",
       backgroundColor: page.label === "Dashboard" ? "#fca10d" : undefined
     }
-  }, "ShopPal")), react_1["default"].createElement("div", {
+  }, isPhone ? react_1["default"].createElement(Storefront_1["default"], null) : "ShopPal")), react_1["default"].createElement("div", {
     style: {
       display: "flex",
       width: "100%"
     }
   }, react_1["default"].createElement(Button_1["default"], {
-    startIcon: react_1["default"].createElement(Subject_1["default"], null),
+    startIcon: isPhone ? null : react_1["default"].createElement(Subject_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
-      marginLeft: "auto",
+      marginLeft: isPhone ? "6px" : "auto",
       outline: "none",
       backgroundColor: page.label === "Lists" ? "#fca10d" : undefined
     }
-  }, "Lists"), react_1["default"].createElement(Button_1["default"], {
-    startIcon: react_1["default"].createElement(Fastfood_1["default"], null),
+  }, isPhone ? react_1["default"].createElement(Subject_1["default"], null) : "Lists"), react_1["default"].createElement(Button_1["default"], {
+    startIcon: isPhone ? null : react_1["default"].createElement(Fastfood_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
@@ -18251,34 +18308,32 @@ var NavBar = function NavBar(_a) {
       outline: "none",
       backgroundColor: page.label === "Products" ? "#fca10d" : undefined
     }
-  }, "Products"), react_1["default"].createElement(Button_1["default"], {
-    startIcon: react_1["default"].createElement(Extension_1["default"], null),
+  }, isPhone ? react_1["default"].createElement(Fastfood_1["default"], null) : "Products"), react_1["default"].createElement(Button_1["default"], {
+    startIcon: isPhone ? null : react_1["default"].createElement(Extension_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
-      marginLeft: "8px",
+      marginLeft: isPhone ? "6px" : "8px",
       outline: "none",
       backgroundColor: page.label === "Extras" ? "#fca10d" : undefined
     }
-  }, "Extras"), react_1["default"].createElement(Button_1["default"], {
-    startIcon: react_1["default"].createElement(AccountBox_1["default"], null),
+  }, isPhone ? react_1["default"].createElement(Extension_1["default"], null) : "Extras"), react_1["default"].createElement(react_router_dom_1.Link, {
+    to: "/account"
+  }, react_1["default"].createElement(Button_1["default"], {
+    startIcon: isPhone ? null : react_1["default"].createElement(AccountBox_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
-      marginLeft: "8px",
+      marginLeft: isPhone ? "6px" : "8px",
       outline: "none",
       backgroundColor: page.label === "Account" ? "#fca10d" : undefined
     }
-  }, "Account"), react_1["default"].createElement(Button_1["default"], {
-    onClick: logout(),
-    startIcon: react_1["default"].createElement(MeetingRoom_1["default"], null),
-    size: "large",
-    variant: "contained",
-    style: {
-      marginLeft: "8px",
-      outline: "none"
-    }
-  }, "Logout")))), children);
+  }, isPhone ? react_1["default"].createElement(AccountBox_1["default"], null) : "Account")), page.label === "Login" ? null : isPhone || isTablet ? null : react_1["default"].createElement(Logout_1["default"], null))), page.label === "Login" ? null : isPhone || isTablet ? react_1["default"].createElement(Toolbar_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Logout_1["default"], null))) : null) : react_1["default"].createElement(CircularProgress_1["default"], null), children);
 };
 
 exports.default = NavBar;
@@ -18769,6 +18824,65 @@ var Main = function Main() {
 };
 
 exports.default = Main;
+
+/***/ }),
+
+/***/ "./resources/js/pages/Account/index.tsx":
+/*!**********************************************!*\
+  !*** ./resources/js/pages/Account/index.tsx ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var useMediaQuery_1 = __importDefault(__webpack_require__(/*! @material-ui/core/useMediaQuery */ "./node_modules/@material-ui/core/esm/useMediaQuery/index.js"));
+
+var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+
+var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
+
+var Paper_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js"));
+
+var Grid_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js"));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Account = function Account() {
+  var theme = styles_1.useTheme();
+  var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  return react_1["default"].createElement(Slide_1["default"], {
+    direction: "right",
+    "in": true
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    spacing: 4
+  }, react_1["default"].createElement(Grid_1["default"], {
+    item: true,
+    xs: 12
+  }, react_1["default"].createElement(Paper_1["default"], {
+    elevation: 3,
+    style: {
+      marginTop: "5%",
+      marginLeft: isTablet ? "7%" : "20%",
+      marginRight: isTablet ? "7%" : "20%",
+      marginBottom: "3%",
+      padding: isTablet ? "18px" : "25px"
+    }
+  }, react_1["default"].createElement("p", null, "Hello")))));
+};
+
+exports.default = Account;
 
 /***/ }),
 
@@ -19383,6 +19497,7 @@ var EPages;
 (function (EPages) {
   EPages["Login"] = "login";
   EPages["Dashboard"] = "dashboard";
+  EPages["Account"] = "account";
 })(EPages = exports.EPages || (exports.EPages = {}));
 
 /***/ }),
@@ -19425,6 +19540,8 @@ var Dashboard_1 = __importDefault(__webpack_require__(/*! ./Dashboard */ "./reso
 
 var enums_1 = __webpack_require__(/*! ./enums */ "./resources/js/pages/enums.ts");
 
+var Account_1 = __importDefault(__webpack_require__(/*! ./Account */ "./resources/js/pages/Account/index.tsx"));
+
 var Login_1 = __importDefault(__webpack_require__(/*! ./Login */ "./resources/js/pages/Login/index.tsx"));
 
 var unauthed = [{
@@ -19439,6 +19556,12 @@ var authed = [{
   label: "Dashboard",
   path: "/dashboard",
   Component: Dashboard_1["default"],
+  authed: true
+}, {
+  name: enums_1.EPages.Account,
+  label: "Account",
+  path: "/account",
+  Component: Account_1["default"],
   authed: true
 }];
 exports.pages = __spreadArrays(unauthed, authed);
