@@ -1,3 +1,8 @@
+import { useLocation, matchPath } from "react-router-dom";
+
+import { IProps } from "./interfaces";
+import { pages } from "../pages";
+
 export const toFormData = (data: any, stringifyNested = true) =>
     Object.entries(data).reduce((acc, [key, value]) => {
         const convertValue = (v: any, stringifyObjects = false) => {
@@ -42,4 +47,20 @@ export const timeOfDay = () => {
     }
 
     return "evening";
+};
+
+export const Location = ({ children }: IProps) => {
+    const location = useLocation();
+
+    const page =
+        pages.find(
+            (p) =>
+                !!matchPath(location.pathname, {
+                    path: p.path,
+                    exact: true,
+                    strict: true,
+                })
+        ) || null;
+
+    return children(page);
 };

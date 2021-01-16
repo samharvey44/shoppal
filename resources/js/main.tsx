@@ -6,6 +6,7 @@ import React from "react";
 
 import AuthGate from "./components/gates/AuthGate";
 import NavBar from "./components/layout/Navbar";
+import { Location } from "./helpers";
 import Router from "./router";
 
 const Main: React.FC = () => {
@@ -21,11 +22,13 @@ const Main: React.FC = () => {
                     <AuthGate>
                         {(ready) =>
                             ready ? (
-                                <React.Fragment>
-                                    <NavBar>
-                                        <Router />
-                                    </NavBar>
-                                </React.Fragment>
+                                <Location>
+                                    {(page) => (
+                                        <NavBar page={page}>
+                                            <Router />
+                                        </NavBar>
+                                    )}
+                                </Location>
                             ) : (
                                 <LinearProgress />
                             )

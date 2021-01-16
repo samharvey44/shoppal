@@ -15650,6 +15650,66 @@ function useIsFocusVisible() {
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/AccountBox.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@material-ui/icons/AccountBox.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M3 5v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2H5c-1.11 0-2 .9-2 2zm12 4c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3zm-9 8c0-2 4-3.1 6-3.1s6 1.1 6 3.1v1H6v-1z"
+}), 'AccountBox');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/Extension.js":
+/*!******************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Extension.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"
+}), 'Extension');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/Fastfood.js":
 /*!*****************************************************!*\
   !*** ./node_modules/@material-ui/icons/Fastfood.js ***!
@@ -18127,7 +18187,15 @@ Object.defineProperty(exports, "__esModule", ({
 
 var MeetingRoom_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/MeetingRoom */ "./node_modules/@material-ui/icons/MeetingRoom.js"));
 
+var AccountBox_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/AccountBox */ "./node_modules/@material-ui/icons/AccountBox.js"));
+
 var Storefront_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Storefront */ "./node_modules/@material-ui/icons/Storefront.js"));
+
+var Extension_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Extension */ "./node_modules/@material-ui/icons/Extension.js"));
+
+var Fastfood_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Fastfood */ "./node_modules/@material-ui/icons/Fastfood.js"));
+
+var Subject_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Subject */ "./node_modules/@material-ui/icons/Subject.js"));
 
 var Toolbar_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Toolbar */ "./node_modules/@material-ui/core/esm/Toolbar/index.js"));
 
@@ -18135,14 +18203,15 @@ var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button 
 
 var AppBar_1 = __importDefault(__webpack_require__(/*! @material-ui/core/AppBar */ "./node_modules/@material-ui/core/esm/AppBar/index.js"));
 
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 var logout_1 = __importDefault(__webpack_require__(/*! ../../../hooks/user/logout */ "./resources/js/hooks/user/logout/index.ts"));
 
 var NavBar = function NavBar(_a) {
-  var children = _a.children;
+  var page = _a.page,
+      children = _a.children;
   var logout = logout_1["default"];
   return react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(AppBar_1["default"], {
     position: "static",
@@ -18154,19 +18223,60 @@ var NavBar = function NavBar(_a) {
   }, react_1["default"].createElement(Button_1["default"], {
     startIcon: react_1["default"].createElement(Storefront_1["default"], null),
     size: "large",
-    variant: "contained"
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: page.label === "Dashboard" ? "#fca10d" : undefined
+    }
   }, "ShopPal")), react_1["default"].createElement("div", {
     style: {
       display: "flex",
       width: "100%"
     }
   }, react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(Subject_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "auto",
+      outline: "none",
+      backgroundColor: page.label === "Lists" ? "#fca10d" : undefined
+    }
+  }, "Lists"), react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(Fastfood_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "8px",
+      outline: "none",
+      backgroundColor: page.label === "Products" ? "#fca10d" : undefined
+    }
+  }, "Products"), react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(Extension_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "8px",
+      outline: "none",
+      backgroundColor: page.label === "Extras" ? "#fca10d" : undefined
+    }
+  }, "Extras"), react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(AccountBox_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "8px",
+      outline: "none",
+      backgroundColor: page.label === "Account" ? "#fca10d" : undefined
+    }
+  }, "Account"), react_1["default"].createElement(Button_1["default"], {
     onClick: logout(),
     startIcon: react_1["default"].createElement(MeetingRoom_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
-      marginLeft: "auto"
+      marginLeft: "8px",
+      outline: "none"
     }
   }, "Logout")))), children);
 };
@@ -18394,7 +18504,7 @@ exports.API = {
 /*!***************************************!*\
   !*** ./resources/js/helpers/index.ts ***!
   \***************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
@@ -18404,7 +18514,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.timeOfDay = exports.toFormData = void 0;
+exports.Location = exports.timeOfDay = exports.toFormData = void 0;
+
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+var pages_1 = __webpack_require__(/*! ../pages */ "./resources/js/pages/index.ts");
 
 var toFormData = function toFormData(data, stringifyNested) {
   if (stringifyNested === void 0) {
@@ -18467,6 +18581,21 @@ var timeOfDay = function timeOfDay() {
 };
 
 exports.timeOfDay = timeOfDay;
+
+var Location = function Location(_a) {
+  var children = _a.children;
+  var location = react_router_dom_1.useLocation();
+  var page = pages_1.pages.find(function (p) {
+    return !!react_router_dom_1.matchPath(location.pathname, {
+      path: p.path,
+      exact: true,
+      strict: true
+    });
+  }) || null;
+  return children(page);
+};
+
+exports.Location = Location;
 
 /***/ }),
 
@@ -18618,6 +18747,8 @@ var AuthGate_1 = __importDefault(__webpack_require__(/*! ./components/gates/Auth
 
 var Navbar_1 = __importDefault(__webpack_require__(/*! ./components/layout/Navbar */ "./resources/js/components/layout/Navbar/index.tsx"));
 
+var helpers_1 = __webpack_require__(/*! ./helpers */ "./resources/js/helpers/index.ts");
+
 var router_1 = __importDefault(__webpack_require__(/*! ./router */ "./resources/js/router.tsx"));
 
 var Main = function Main() {
@@ -18629,7 +18760,11 @@ var Main = function Main() {
     maxSnack: 3,
     anchorOrigin: anchorOrigin
   }, react_1["default"].createElement(AuthGate_1["default"], null, function (ready) {
-    return ready ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Navbar_1["default"], null, react_1["default"].createElement(router_1["default"], null))) : react_1["default"].createElement(LinearProgress_1["default"], null);
+    return ready ? react_1["default"].createElement(helpers_1.Location, null, function (page) {
+      return react_1["default"].createElement(Navbar_1["default"], {
+        page: page
+      }, react_1["default"].createElement(router_1["default"], null));
+    }) : react_1["default"].createElement(LinearProgress_1["default"], null);
   }))));
 };
 
