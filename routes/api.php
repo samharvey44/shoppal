@@ -25,5 +25,7 @@ Route::middleware('auth:api')->group(function() {
 
     Route::prefix('/account')->group(function() {
         Route::get('/', [UserController::class, 'index']);
+
+        Route::put('/edit', [UserController::class, 'update']);
     });
 });

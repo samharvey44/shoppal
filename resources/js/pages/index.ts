@@ -1,8 +1,10 @@
+import EditAccount from "./Account/Edit";
 import { IPage } from "./interfaces";
 import Dashboard from "./Dashboard";
 import { EPages } from "./enums";
 import Account from "./Account";
 import Login from "./Login";
+
 const unauthed: IPage[] = [
     {
         name: EPages.Login,
@@ -27,6 +29,14 @@ const authed: IPage[] = [
         label: "Account",
         path: "/account",
         Component: Account,
+        authed: true,
+    },
+
+    {
+        name: EPages.EditAccount,
+        label: "Account",
+        path: "/account/edit",
+        Component: EditAccount,
         authed: true,
     },
 ];

@@ -23,12 +23,7 @@ const NavBar: React.FC<{ page: any }> = ({ page, children }) => {
     return (
         <React.Fragment>
             {page ? (
-                <AppBar
-                    position="static"
-                    style={{
-                        marginBottom: "25px",
-                    }}
-                >
+                <AppBar position="static">
                     <Toolbar
                         style={{
                             paddingLeft: isPhone

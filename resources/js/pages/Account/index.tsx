@@ -11,12 +11,15 @@ import SubjectIcon from "@material-ui/icons/Subject";
 import { useTheme } from "@material-ui/core/styles";
 import React, { useState, useEffect } from "react";
 import StoreIcon from "@material-ui/icons/Store";
+import EditIcon from "@material-ui/icons/Edit";
+import Button from "@material-ui/core/Button";
 import Slide from "@material-ui/core/Slide";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import { useRecoilValue } from "recoil";
 import { useSnackbar } from "notistack";
+import { Link } from "react-router-dom";
 import moment from "moment";
 
 import userAtom from "../../atoms/user";
@@ -60,7 +63,7 @@ const Account: React.FC = () => {
                                 marginTop: "5%",
                                 marginLeft: isTablet ? "7%" : "20%",
                                 marginRight: isTablet ? "7%" : "20%",
-                                marginBottom: "3%",
+                                marginBottom: "5%",
                                 padding: isTablet ? "18px" : "25px",
                             }}
                         >
@@ -85,6 +88,22 @@ const Account: React.FC = () => {
                                             : ""
                                     }.`}
                                 </Typography>
+
+                                <hr />
+
+                                <Link to="/account/edit">
+                                    <Button
+                                        startIcon={<EditIcon />}
+                                        size="large"
+                                        variant="contained"
+                                        style={{
+                                            outline: "none",
+                                            backgroundColor: "#fca10d",
+                                        }}
+                                    >
+                                        Edit
+                                    </Button>
+                                </Link>
 
                                 <hr />
                                 <hr />

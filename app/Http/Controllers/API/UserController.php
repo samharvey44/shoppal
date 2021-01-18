@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 
 use App\Http\Resources\UserResource;
 
@@ -31,5 +32,36 @@ class UserController extends Controller
             'categoryCount' => Category::where('user_id', Auth::id())->count(),
             'shopCount' => Shop::where('user_id', Auth::id())->count(),
         ]]);
+    }
+
+    public function update(Request $request) {
+        $user = Auth::user();
+
+        $rules = [];
+        $values = collect($request->all());
+
+        switch($request->requestType) {
+            case ('profile'): {
+                $rules = ['email' => 'required', 'name' => 'required'];
+
+                break;
+            }
+
+            default: {
+                $rules = ['password' => 'required|min:5'];
+
+                $values = $values->merge([
+                    'password' => Hash::make($request->password),
+                ]);
+
+                break;
+            }
+        }
+
+         $request->validate($rules);
+
+         $user->update($values->snakifyKeys()->toArray());
+
+         return UserResource::make($user);
     }
 }

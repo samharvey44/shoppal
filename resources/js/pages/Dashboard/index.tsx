@@ -57,7 +57,7 @@ const Dashboard: React.FC = () => {
                                 marginTop: "5%",
                                 marginLeft: isTablet ? "7%" : "20%",
                                 marginRight: isTablet ? "7%" : "20%",
-                                marginBottom: "3%",
+                                marginBottom: "5%",
                                 padding: isTablet ? "18px" : "25px",
                             }}
                         >

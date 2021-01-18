@@ -15746,6 +15746,36 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Edit.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Edit.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 00-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+}), 'Edit');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/Extension.js":
 /*!******************************************************!*\
   !*** ./node_modules/@material-ui/icons/Extension.js ***!
@@ -15806,6 +15836,36 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Lock.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Lock.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
+}), 'Lock');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/MeetingRoom.js":
 /*!********************************************************!*\
   !*** ./node_modules/@material-ui/icons/MeetingRoom.js ***!
@@ -15831,6 +15891,36 @@ var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/crea
 var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
   d: "M14 6v15H3v-2h2V3h9v1h5v15h2v2h-4V6h-3zm-4 5v2h2v-2h-2z"
 }), 'MeetingRoom');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/Save.js":
+/*!*************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Save.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"
+}), 'Save');
 
 exports.default = _default;
 
@@ -18363,10 +18453,7 @@ var NavBar = function NavBar(_a) {
   var isPhone = useMediaQuery_1["default"](theme.breakpoints.down("xs"));
   var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
   return react_1["default"].createElement(react_1["default"].Fragment, null, page ? react_1["default"].createElement(AppBar_1["default"], {
-    position: "static",
-    style: {
-      marginBottom: "25px"
-    }
+    position: "static"
   }, react_1["default"].createElement(Toolbar_1["default"], {
     style: {
       paddingLeft: isPhone ? "6px" : isTablet ? "8px" : undefined
@@ -18923,6 +19010,249 @@ exports.default = Main;
 
 /***/ }),
 
+/***/ "./resources/js/pages/Account/Edit/index.tsx":
+/*!***************************************************!*\
+  !*** ./resources/js/pages/Account/Edit/index.tsx ***!
+  \***************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var useMediaQuery_1 = __importDefault(__webpack_require__(/*! @material-ui/core/useMediaQuery */ "./node_modules/@material-ui/core/esm/useMediaQuery/index.js"));
+
+var Typography_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js"));
+
+var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+
+var TextField_1 = __importDefault(__webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js"));
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Save_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Save */ "./node_modules/@material-ui/icons/Save.js"));
+
+var Lock_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Lock */ "./node_modules/@material-ui/icons/Lock.js"));
+
+var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
+
+var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
+
+var Paper_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js"));
+
+var recoil_1 = __webpack_require__(/*! recoil */ "./node_modules/recoil/es/recoil.js");
+
+var Grid_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js"));
+
+var recoil_2 = __webpack_require__(/*! recoil */ "./node_modules/recoil/es/recoil.js");
+
+var notistack_1 = __webpack_require__(/*! notistack */ "./node_modules/notistack/dist/notistack.esm.js");
+
+var moment_1 = __importDefault(__webpack_require__(/*! moment */ "./node_modules/moment/moment.js"));
+
+var user_1 = __importDefault(__webpack_require__(/*! ../../../atoms/user */ "./resources/js/atoms/user/index.ts"));
+
+var api_1 = __importDefault(__webpack_require__(/*! ../../../services/api */ "./resources/js/services/api/index.ts"));
+
+var EditAccount = function EditAccount() {
+  var theme = styles_1.useTheme();
+  var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  var user = recoil_2.useRecoilValue(user_1["default"]);
+  var setUser = recoil_1.useSetRecoilState(user_1["default"]);
+  var enqueueSnackbar = notistack_1.useSnackbar().enqueueSnackbar;
+
+  var _a = react_1.useState(""),
+      email = _a[0],
+      setEmail = _a[1];
+
+  var _b = react_1.useState(""),
+      name = _b[0],
+      setName = _b[1];
+
+  var _c = react_1.useState(""),
+      password = _c[0],
+      setPassword = _c[1];
+
+  var _d = react_1.useState(""),
+      passwordConfirm = _d[0],
+      setPasswordConfirm = _d[1];
+
+  react_1.useEffect(function () {
+    if (user) {
+      setEmail(user.email);
+      setName(user.name);
+    }
+  }, [user]);
+
+  var emailChangeHandler = function emailChangeHandler(e) {
+    setEmail(e.target.value);
+  };
+
+  var nameChangeHandler = function nameChangeHandler(e) {
+    setName(e.target.value);
+  };
+
+  var passwordChangeHandler = function passwordChangeHandler(e) {
+    setPassword(e.target.value);
+  };
+
+  var passwordConfirmChangeHandler = function passwordConfirmChangeHandler(e) {
+    setPasswordConfirm(e.target.value);
+  };
+
+  var profileUpdateHandler = function profileUpdateHandler() {
+    api_1["default"].put("account/edit", {
+      email: email,
+      name: name,
+      requestType: "profile"
+    }).then(function (_a) {
+      var d = _a.data.data;
+      setUser(d);
+      enqueueSnackbar("Your profile was updated successfully.", {
+        variant: "success"
+      });
+    })["catch"](function (error) {
+      enqueueSnackbar("Oops, something went wrong! Ensure you have filled all fields.", {
+        variant: "error"
+      });
+    });
+  };
+
+  return react_1["default"].createElement(Slide_1["default"], {
+    direction: "right",
+    "in": true
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    spacing: 4
+  }, react_1["default"].createElement(Grid_1["default"], {
+    item: true,
+    xs: 12
+  }, react_1["default"].createElement(Paper_1["default"], {
+    elevation: 3,
+    style: {
+      marginTop: "5%",
+      marginLeft: isTablet ? "7%" : "20%",
+      marginRight: isTablet ? "7%" : "20%",
+      marginBottom: "5%",
+      padding: isTablet ? "18px" : "25px"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Typography_1["default"], {
+    variant: "h2"
+  }, "Edit Profile"), react_1["default"].createElement("br", null), react_1["default"].createElement(Typography_1["default"], {
+    variant: "h5"
+  }, "You joined us on: " + (user ? moment_1["default"].utc(user.createdAt).format("DD/MM/YYYY") : "") + "."), react_1["default"].createElement("hr", null), react_1["default"].createElement(TextField_1["default"], {
+    label: "Email",
+    name: "email",
+    type: "email",
+    value: email,
+    onChange: emailChangeHandler,
+    style: {
+      width: isTablet ? "75%" : "50%"
+    }
+  }), react_1["default"].createElement("hr", null), react_1["default"].createElement(TextField_1["default"], {
+    label: "Name",
+    name: "name",
+    type: "text",
+    value: name,
+    onChange: nameChangeHandler,
+    style: {
+      width: isTablet ? "75%" : "50%"
+    }
+  }), react_1["default"].createElement("hr", null), react_1["default"].createElement(Button_1["default"], {
+    onClick: profileUpdateHandler,
+    startIcon: react_1["default"].createElement(Save_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: "#fca10d"
+    }
+  }, "Save"), react_1["default"].createElement("hr", null), react_1["default"].createElement(TextField_1["default"], {
+    label: "New Password",
+    name: "password",
+    type: "password",
+    value: password,
+    onChange: passwordChangeHandler,
+    style: {
+      width: isTablet ? "75%" : "50%"
+    }
+  }), react_1["default"].createElement("hr", null), react_1["default"].createElement(TextField_1["default"], {
+    label: "Confirm New Password",
+    name: "confirmPassword",
+    type: "password",
+    value: passwordConfirm,
+    onChange: passwordConfirmChangeHandler,
+    style: {
+      width: isTablet ? "75%" : "50%"
+    }
+  }), react_1["default"].createElement("hr", null), react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(Lock_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: "#fca10d"
+    }
+  }, "Change Password")))))));
+};
+
+exports.default = EditAccount;
+
+/***/ }),
+
 /***/ "./resources/js/pages/Account/index.tsx":
 /*!**********************************************!*\
   !*** ./resources/js/pages/Account/index.tsx ***!
@@ -19002,6 +19332,10 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 
 var Store_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Store */ "./node_modules/@material-ui/icons/Store.js"));
 
+var Edit_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Edit */ "./node_modules/@material-ui/icons/Edit.js"));
+
+var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
+
 var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
 
 var Paper_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js"));
@@ -19013,6 +19347,8 @@ var Card_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Card */ "
 var recoil_1 = __webpack_require__(/*! recoil */ "./node_modules/recoil/es/recoil.js");
 
 var notistack_1 = __webpack_require__(/*! notistack */ "./node_modules/notistack/dist/notistack.esm.js");
+
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 var moment_1 = __importDefault(__webpack_require__(/*! moment */ "./node_modules/moment/moment.js"));
 
@@ -19059,7 +19395,7 @@ var Account = function Account() {
       marginTop: "5%",
       marginLeft: isTablet ? "7%" : "20%",
       marginRight: isTablet ? "7%" : "20%",
-      marginBottom: "3%",
+      marginBottom: "5%",
       padding: isTablet ? "18px" : "25px"
     }
   }, react_1["default"].createElement(Grid_1["default"], {
@@ -19071,7 +19407,17 @@ var Account = function Account() {
     variant: "h2"
   }, (user ? user.name : "") + "'s Profile"), react_1["default"].createElement("br", null), react_1["default"].createElement(Typography_1["default"], {
     variant: "h5"
-  }, "You joined us on: " + (user ? moment_1["default"].utc(user.createdAt).format("DD/MM/YYYY") : "") + "."), react_1["default"].createElement("hr", null), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
+  }, "You joined us on: " + (user ? moment_1["default"].utc(user.createdAt).format("DD/MM/YYYY") : "") + "."), react_1["default"].createElement("hr", null), react_1["default"].createElement(react_router_dom_1.Link, {
+    to: "/account/edit"
+  }, react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(Edit_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: "#fca10d"
+    }
+  }, "Edit")), react_1["default"].createElement("hr", null), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
     style: {
       display: "flex",
       width: "100%",
@@ -19396,7 +19742,7 @@ var Dashboard = function Dashboard() {
       marginTop: "5%",
       marginLeft: isTablet ? "7%" : "20%",
       marginRight: isTablet ? "7%" : "20%",
-      marginBottom: "3%",
+      marginBottom: "5%",
       padding: isTablet ? "18px" : "25px"
     }
   }, react_1["default"].createElement(Grid_1["default"], {
@@ -19878,6 +20224,7 @@ var EPages;
   EPages["Login"] = "login";
   EPages["Dashboard"] = "dashboard";
   EPages["Account"] = "account";
+  EPages["EditAccount"] = "editAccount";
 })(EPages = exports.EPages || (exports.EPages = {}));
 
 /***/ }),
@@ -19916,6 +20263,8 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.pages = void 0;
 
+var Edit_1 = __importDefault(__webpack_require__(/*! ./Account/Edit */ "./resources/js/pages/Account/Edit/index.tsx"));
+
 var Dashboard_1 = __importDefault(__webpack_require__(/*! ./Dashboard */ "./resources/js/pages/Dashboard/index.tsx"));
 
 var enums_1 = __webpack_require__(/*! ./enums */ "./resources/js/pages/enums.ts");
@@ -19942,6 +20291,12 @@ var authed = [{
   label: "Account",
   path: "/account",
   Component: Account_1["default"],
+  authed: true
+}, {
+  name: enums_1.EPages.EditAccount,
+  label: "Account",
+  path: "/account/edit",
+  Component: Edit_1["default"],
   authed: true
 }];
 exports.pages = __spreadArrays(unauthed, authed);
