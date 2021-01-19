@@ -1,4 +1,5 @@
 import BrandingWatermarkIcon from "@material-ui/icons/BrandingWatermark";
+import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -22,6 +23,7 @@ import { useSnackbar } from "notistack";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
+import { useGoBack } from "../../helpers";
 import userAtom from "../../atoms/user";
 import api from "../../services/api";
 import { IData } from "./interfaces";
@@ -34,6 +36,8 @@ const Account: React.FC = () => {
     const isTablet = useMediaQuery(theme.breakpoints.down("sm"));
 
     const user = useRecoilValue(userAtom);
+
+    const goBack = useGoBack();
 
     useEffect(() => {
         api.get("/account")
@@ -57,10 +61,52 @@ const Account: React.FC = () => {
             >
                 <Grid container spacing={4}>
                     <Grid item xs={12}>
+                        {isTablet ? (
+                            <Grid
+                                container
+                                direction="column"
+                                justify="center"
+                                alignItems="center"
+                            >
+                                <Button
+                                    onClick={() => {
+                                        goBack();
+                                    }}
+                                    startIcon={<KeyboardReturnIcon />}
+                                    size="small"
+                                    variant="contained"
+                                    style={{
+                                        outline: "none",
+                                        marginTop: "3%",
+                                        backgroundColor: "#fca10d",
+                                    }}
+                                >
+                                    Return
+                                </Button>
+                            </Grid>
+                        ) : (
+                            <Button
+                                onClick={() => {
+                                    goBack();
+                                }}
+                                startIcon={<KeyboardReturnIcon />}
+                                size="small"
+                                variant="contained"
+                                style={{
+                                    outline: "none",
+                                    marginLeft: "24px",
+                                    marginTop: "1%",
+                                    backgroundColor: "#fca10d",
+                                }}
+                            >
+                                Return
+                            </Button>
+                        )}
+
                         <Paper
                             elevation={3}
                             style={{
-                                marginTop: "5%",
+                                marginTop: "2%",
                                 marginLeft: isTablet ? "7%" : "20%",
                                 marginRight: isTablet ? "7%" : "20%",
                                 marginBottom: "5%",

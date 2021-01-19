@@ -15836,6 +15836,36 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/KeyboardReturn.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/@material-ui/icons/KeyboardReturn.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7z"
+}), 'KeyboardReturn');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/Lock.js":
 /*!*************************************************!*\
   !*** ./node_modules/@material-ui/icons/Lock.js ***!
@@ -18752,9 +18782,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.Location = exports.timeOfDay = exports.toFormData = void 0;
+exports.useGoBack = exports.Location = exports.timeOfDay = exports.toFormData = void 0;
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+var react_router_last_location_1 = __webpack_require__(/*! react-router-last-location */ "./node_modules/react-router-last-location/dist/index.js");
 
 var pages_1 = __webpack_require__(/*! ../pages */ "./resources/js/pages/index.ts");
 
@@ -18834,6 +18866,20 @@ var Location = function Location(_a) {
 };
 
 exports.Location = Location;
+
+var useGoBack = function useGoBack() {
+  var lastLocation = react_router_last_location_1.useLastLocation();
+  var history = react_router_dom_1.useHistory();
+  return function () {
+    if (lastLocation !== null) {
+      history.goBack();
+    } else {
+      history.push("/dashboard");
+    }
+  };
+};
+
+exports.useGoBack = useGoBack;
 
 /***/ }),
 
@@ -19063,6 +19109,8 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
+var KeyboardReturn_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/KeyboardReturn */ "./node_modules/@material-ui/icons/KeyboardReturn.js"));
+
 var useMediaQuery_1 = __importDefault(__webpack_require__(/*! @material-ui/core/useMediaQuery */ "./node_modules/@material-ui/core/esm/useMediaQuery/index.js"));
 
 var Typography_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js"));
@@ -19093,6 +19141,8 @@ var notistack_1 = __webpack_require__(/*! notistack */ "./node_modules/notistack
 
 var moment_1 = __importDefault(__webpack_require__(/*! moment */ "./node_modules/moment/moment.js"));
 
+var helpers_1 = __webpack_require__(/*! ../../../helpers */ "./resources/js/helpers/index.ts");
+
 var user_1 = __importDefault(__webpack_require__(/*! ../../../atoms/user */ "./resources/js/atoms/user/index.ts"));
 
 var api_1 = __importDefault(__webpack_require__(/*! ../../../services/api */ "./resources/js/services/api/index.ts"));
@@ -19120,6 +19170,7 @@ var EditAccount = function EditAccount() {
       passwordConfirm = _d[0],
       setPasswordConfirm = _d[1];
 
+  var goBack = helpers_1.useGoBack();
   react_1.useEffect(function () {
     if (user) {
       setEmail(user.email);
@@ -19161,6 +19212,23 @@ var EditAccount = function EditAccount() {
     });
   };
 
+  var passwordUpdateHandler = function passwordUpdateHandler() {
+    api_1["default"].put("account/edit", {
+      password: password,
+      passwordConfirm: passwordConfirm
+    }).then(function (_a) {
+      var d = _a.data.data;
+      setUser(d);
+      enqueueSnackbar("Your password was updated successfully.", {
+        variant: "success"
+      });
+    })["catch"](function (error) {
+      enqueueSnackbar("Oops, something went wrong! Ensure you enter matching passwords.", {
+        variant: "error"
+      });
+    });
+  };
+
   return react_1["default"].createElement(Slide_1["default"], {
     direction: "right",
     "in": true
@@ -19175,10 +19243,40 @@ var EditAccount = function EditAccount() {
   }, react_1["default"].createElement(Grid_1["default"], {
     item: true,
     xs: 12
-  }, react_1["default"].createElement(Paper_1["default"], {
+  }, isTablet ? react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      goBack();
+    },
+    startIcon: react_1["default"].createElement(KeyboardReturn_1["default"], null),
+    size: "small",
+    variant: "contained",
+    style: {
+      outline: "none",
+      marginTop: "3%",
+      backgroundColor: "#fca10d"
+    }
+  }, "Return")) : react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      goBack();
+    },
+    startIcon: react_1["default"].createElement(KeyboardReturn_1["default"], null),
+    size: "small",
+    variant: "contained",
+    style: {
+      outline: "none",
+      marginLeft: "24px",
+      marginTop: "1%",
+      backgroundColor: "#fca10d"
+    }
+  }, "Return"), react_1["default"].createElement(Paper_1["default"], {
     elevation: 3,
     style: {
-      marginTop: "5%",
+      marginTop: "2%",
       marginLeft: isTablet ? "7%" : "20%",
       marginRight: isTablet ? "7%" : "20%",
       marginBottom: "5%",
@@ -19191,9 +19289,13 @@ var EditAccount = function EditAccount() {
     alignItems: "center"
   }, react_1["default"].createElement(Typography_1["default"], {
     variant: "h2"
-  }, "Edit Profile"), react_1["default"].createElement("br", null), react_1["default"].createElement(Typography_1["default"], {
+  }, "Edit Profile"), react_1["default"].createElement("br", null), react_1["default"].createElement("div", {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Typography_1["default"], {
     variant: "h5"
-  }, "You joined us on: " + (user ? moment_1["default"].utc(user.createdAt).format("DD/MM/YYYY") : "") + "."), react_1["default"].createElement("hr", null), react_1["default"].createElement(TextField_1["default"], {
+  }, "You joined us on: " + (user ? moment_1["default"].utc(user.createdAt).format("DD/MM/YYYY") : "") + ".")), react_1["default"].createElement("hr", null), react_1["default"].createElement(TextField_1["default"], {
     label: "Email",
     name: "email",
     type: "email",
@@ -19239,6 +19341,7 @@ var EditAccount = function EditAccount() {
       width: isTablet ? "75%" : "50%"
     }
   }), react_1["default"].createElement("hr", null), react_1["default"].createElement(Button_1["default"], {
+    onClick: passwordUpdateHandler,
     startIcon: react_1["default"].createElement(Lock_1["default"], null),
     size: "large",
     variant: "contained",
@@ -19308,6 +19411,8 @@ Object.defineProperty(exports, "__esModule", ({
 
 var BrandingWatermark_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/BrandingWatermark */ "./node_modules/@material-ui/icons/BrandingWatermark.js"));
 
+var KeyboardReturn_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/KeyboardReturn */ "./node_modules/@material-ui/icons/KeyboardReturn.js"));
+
 var CircularProgress_1 = __importDefault(__webpack_require__(/*! @material-ui/core/CircularProgress */ "./node_modules/@material-ui/core/esm/CircularProgress/index.js"));
 
 var ShoppingCart_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/ShoppingCart */ "./node_modules/@material-ui/icons/ShoppingCart.js"));
@@ -19352,6 +19457,8 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 
 var moment_1 = __importDefault(__webpack_require__(/*! moment */ "./node_modules/moment/moment.js"));
 
+var helpers_1 = __webpack_require__(/*! ../../helpers */ "./resources/js/helpers/index.ts");
+
 var user_1 = __importDefault(__webpack_require__(/*! ../../atoms/user */ "./resources/js/atoms/user/index.ts"));
 
 var api_1 = __importDefault(__webpack_require__(/*! ../../services/api */ "./resources/js/services/api/index.ts"));
@@ -19365,6 +19472,7 @@ var Account = function Account() {
   var theme = styles_1.useTheme();
   var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
   var user = recoil_1.useRecoilValue(user_1["default"]);
+  var goBack = helpers_1.useGoBack();
   react_1.useEffect(function () {
     api_1["default"].get("/account").then(function (_a) {
       var d = _a.data.data;
@@ -19389,10 +19497,40 @@ var Account = function Account() {
   }, react_1["default"].createElement(Grid_1["default"], {
     item: true,
     xs: 12
-  }, react_1["default"].createElement(Paper_1["default"], {
+  }, isTablet ? react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      goBack();
+    },
+    startIcon: react_1["default"].createElement(KeyboardReturn_1["default"], null),
+    size: "small",
+    variant: "contained",
+    style: {
+      outline: "none",
+      marginTop: "3%",
+      backgroundColor: "#fca10d"
+    }
+  }, "Return")) : react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      goBack();
+    },
+    startIcon: react_1["default"].createElement(KeyboardReturn_1["default"], null),
+    size: "small",
+    variant: "contained",
+    style: {
+      outline: "none",
+      marginLeft: "24px",
+      marginTop: "1%",
+      backgroundColor: "#fca10d"
+    }
+  }, "Return"), react_1["default"].createElement(Paper_1["default"], {
     elevation: 3,
     style: {
-      marginTop: "5%",
+      marginTop: "2%",
       marginLeft: isTablet ? "7%" : "20%",
       marginRight: isTablet ? "7%" : "20%",
       marginBottom: "5%",
@@ -19757,7 +19895,7 @@ var Dashboard = function Dashboard() {
     }
   }, "Good " + helpers_1.timeOfDay() + ", " + (user ? user.name + "." : "")) : react_1["default"].createElement(Typography_1["default"], {
     variant: "h2"
-  }, "Good " + helpers_1.timeOfDay() + ", " + (user ? user.name + "." : "")), react_1["default"].createElement("hr", null), react_1["default"].createElement("hr", null), isTablet ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", null, react_1["default"].createElement(Card_1["default"], {
+  }, "Good " + helpers_1.timeOfDay() + ", " + (user ? user.name + "." : "")), react_1["default"].createElement("hr", null), isTablet ? null : react_1["default"].createElement("hr", null), isTablet ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", null, react_1["default"].createElement(Card_1["default"], {
     variant: "outlined",
     style: {
       padding: "10px",
@@ -20322,6 +20460,8 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
+var react_router_last_location_1 = __webpack_require__(/*! react-router-last-location */ "./node_modules/react-router-last-location/dist/index.js");
+
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 var recoil_1 = __webpack_require__(/*! recoil */ "./node_modules/recoil/es/recoil.js");
@@ -20340,7 +20480,7 @@ var pages_1 = __webpack_require__(/*! ./pages */ "./resources/js/pages/index.ts"
 
 var Router = function Router() {
   var user = recoil_1.useRecoilValue(user_1["default"]);
-  return react_1["default"].createElement(react_router_dom_1.Switch, null, pages_1.pages.map(function (_a) {
+  return react_1["default"].createElement(react_router_last_location_1.LastLocationProvider, null, react_1["default"].createElement(react_router_dom_1.Switch, null, pages_1.pages.map(function (_a) {
     var authed = _a.authed,
         path = _a.path,
         Component = _a.Component;
@@ -20364,7 +20504,7 @@ var Router = function Router() {
     });
   }), react_1["default"].createElement(react_router_dom_1.Redirect, {
     to: "/" + (user ? enums_1.EPages.Dashboard : enums_1.EPages.Login)
-  }));
+  })));
 };
 
 exports.default = Router;
@@ -49767,6 +49907,386 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/react-is/cjs/react-is.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/react-router-last-location/dist/index.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-router-last-location/dist/index.js ***!
+  \***************************************************************/
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory(__webpack_require__(/*! react */ "./node_modules/react/index.js"), __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js"), __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"), __webpack_require__(/*! history */ "./node_modules/history/esm/history.js"));
+	else {}
+})(this, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__, __WEBPACK_EXTERNAL_MODULE__6__, __WEBPACK_EXTERNAL_MODULE__10__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __nested_webpack_require_1000__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_1000__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__nested_webpack_require_1000__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__nested_webpack_require_1000__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__nested_webpack_require_1000__.d = function(exports, name, getter) {
+/******/ 		if(!__nested_webpack_require_1000__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__nested_webpack_require_1000__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__nested_webpack_require_1000__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __nested_webpack_require_1000__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__nested_webpack_require_1000__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __nested_webpack_require_1000__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__nested_webpack_require_1000__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__nested_webpack_require_1000__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__nested_webpack_require_1000__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__nested_webpack_require_1000__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __nested_webpack_require_1000__(__nested_webpack_require_1000__.s = 4);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__0__;
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __nested_webpack_require_4672__) {
+
+"use strict";
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __nested_webpack_require_4672__(0);
+var PropTypes = __nested_webpack_require_4672__(6);
+var react_router_dom_1 = __nested_webpack_require_4672__(1);
+var LastLocationContext_1 = __nested_webpack_require_4672__(3);
+var prevent_1 = __nested_webpack_require_4672__(7);
+var lastLocation = null;
+var updateLastLocation = function (_a) {
+    var location = _a.location, nextLocation = _a.nextLocation, watchOnlyPathname = _a.watchOnlyPathname;
+    if (location === null) {
+        return;
+    }
+    if (nextLocation === location) {
+        return;
+    }
+    if (watchOnlyPathname && location.pathname === nextLocation.pathname) {
+        return;
+    }
+    if (prevent_1.shouldPrevent(nextLocation) && !prevent_1.hasBeenPrevented(nextLocation)) {
+        prevent_1.prevent(nextLocation);
+        return;
+    }
+    lastLocation = __assign({}, location);
+};
+var LastLocationProvider = /** @class */ (function (_super) {
+    __extends(LastLocationProvider, _super);
+    function LastLocationProvider() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            currentLocation: null,
+        };
+        return _this;
+    }
+    LastLocationProvider.getDerivedStateFromProps = function (props, state) {
+        updateLastLocation({
+            location: state.currentLocation,
+            nextLocation: props.location,
+            watchOnlyPathname: props.watchOnlyPathname,
+        });
+        return {
+            currentLocation: props.location,
+        };
+    };
+    LastLocationProvider.prototype.render = function () {
+        var children = this.props.children;
+        return (React.createElement(LastLocationContext_1.default.Provider, { value: lastLocation }, children));
+    };
+    LastLocationProvider.propTypes = {
+        watchOnlyPathname: PropTypes.bool,
+        children: PropTypes.node.isRequired,
+    };
+    LastLocationProvider.defaultProps = {
+        watchOnlyPathname: false,
+    };
+    return LastLocationProvider;
+}(React.Component));
+exports.getLastLocation = function () { return lastLocation; };
+exports.setLastLocation = function (nextLastLocation) {
+    lastLocation = nextLastLocation;
+};
+exports.default = react_router_dom_1.withRouter(LastLocationProvider);
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __nested_webpack_require_7983__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __nested_webpack_require_7983__(0);
+var LastLocationContext = react_1.createContext(null);
+exports.default = LastLocationContext;
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __nested_webpack_require_8270__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var withLastLocation_1 = __nested_webpack_require_8270__(5);
+exports.withLastLocation = withLastLocation_1.default;
+var LastLocationProvider_1 = __nested_webpack_require_8270__(2);
+exports.LastLocationProvider = LastLocationProvider_1.default;
+var useLastLocation_1 = __nested_webpack_require_8270__(8);
+exports.useLastLocation = useLastLocation_1.default;
+var RedirectWithoutLastLocation_1 = __nested_webpack_require_8270__(9);
+exports.RedirectWithoutLastLocation = RedirectWithoutLastLocation_1.default;
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __nested_webpack_require_8883__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __nested_webpack_require_8883__(0);
+var react_router_dom_1 = __nested_webpack_require_8883__(1);
+var LastLocationProvider_1 = __nested_webpack_require_8883__(2);
+function getDisplayName(WrappedComponent) {
+    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+var withLastLocation = function (WrappedComponent) {
+    var WithLastLocation = function (props) { return (React.createElement(WrappedComponent, __assign({ lastLocation: LastLocationProvider_1.getLastLocation() }, props))); };
+    WithLastLocation.displayName = "WithLastLocation(" + getDisplayName(WrappedComponent) + ")";
+    return react_router_dom_1.withRouter(WithLastLocation);
+};
+exports.default = withLastLocation;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__6__;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * I could only check `key` here but according to:
+ * @see https://reacttraining.com/react-router/web/api/location
+ * `key` property is not available when HashHistory is used.
+ */
+var props = ['key', 'pathname', 'search', 'hash'];
+var isEqual = function (a, b) { return props.every(function (prop) { return a[prop] === b[prop]; }); };
+var prevented = [];
+exports.prevent = function (location) {
+    var state = location.state, rest = __rest(location, ["state"]);
+    prevented.push(rest);
+};
+exports.hasBeenPrevented = function (location) {
+    return prevented.some(function (preventedLocation) { return isEqual(location, preventedLocation); });
+};
+exports.shouldPrevent = function (location) {
+    return Boolean(location.state && location.state.preventLastLocation);
+};
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __nested_webpack_require_11636__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __nested_webpack_require_11636__(0);
+var LastLocationContext_1 = __nested_webpack_require_11636__(3);
+function useLastLocation() {
+    return react_1.useContext(LastLocationContext_1.default);
+}
+exports.default = useLastLocation;
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __nested_webpack_require_12009__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var React = __nested_webpack_require_12009__(0);
+var react_router_dom_1 = __nested_webpack_require_12009__(1);
+var history_1 = __nested_webpack_require_12009__(10);
+var RedirectWithoutLastLocation = function (_a) {
+    var to = _a.to, rest = __rest(_a, ["to"]);
+    var finalTo;
+    if (typeof to === 'string') {
+        finalTo = history_1.createLocation(to, { preventLastLocation: true });
+    }
+    else {
+        finalTo = __assign({}, to, { state: __assign({ preventLastLocation: true }, to.state) });
+    }
+    return React.createElement(react_router_dom_1.Redirect, __assign({}, rest, { to: finalTo }));
+};
+exports.default = RedirectWithoutLastLocation;
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__10__;
+
+/***/ })
+/******/ ]);
+});
 
 /***/ }),
 

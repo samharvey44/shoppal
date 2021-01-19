@@ -48,7 +48,7 @@ class UserController extends Controller
             }
 
             default: {
-                $rules = ['password' => 'required|min:5'];
+                $rules = ['password' => 'required|min:5|same:passwordConfirm'];
 
                 $values = $values->merge([
                     'password' => Hash::make($request->password),

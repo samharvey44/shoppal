@@ -1,4 +1,5 @@
-import { useLocation, matchPath } from "react-router-dom";
+import { useLocation, matchPath, useHistory } from "react-router-dom";
+import { useLastLocation } from "react-router-last-location";
 
 import { IProps } from "./interfaces";
 import { pages } from "../pages";
@@ -63,4 +64,17 @@ export const Location = ({ children }: IProps) => {
         ) || null;
 
     return children(page);
+};
+
+export const useGoBack = () => {
+    const lastLocation = useLastLocation();
+    const history = useHistory();
+
+    return () => {
+        if (lastLocation !== null) {
+            history.goBack();
+        } else {
+            history.push("/dashboard");
+        }
+    };
 };

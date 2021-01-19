@@ -39,6 +39,7 @@
         "moment": "^2.29.1",
         "notistack": "^1.0.3",
         "react-router-dom": "^5.2.0",
+        "react-router-last-location": "^2.0.1",
         "recoil": "^0.1.2"
     }
 }

@@ -85,7 +85,7 @@ const Dashboard: React.FC = () => {
                                 )}
 
                                 <hr />
-                                <hr />
+                                {isTablet ? null : <hr />}
 
                                 {isTablet ? (
                                     <React.Fragment>

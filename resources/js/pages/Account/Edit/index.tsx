@@ -1,4 +1,4 @@
-import CircularProgress from "@material-ui/core/CircularProgress";
+import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
@@ -13,9 +13,9 @@ import { useSetRecoilState } from "recoil";
 import Grid from "@material-ui/core/Grid";
 import { useRecoilValue } from "recoil";
 import { useSnackbar } from "notistack";
-import { Link } from "react-router-dom";
 import moment from "moment";
 
+import { useGoBack } from "../../../helpers";
 import userAtom from "../../../atoms/user";
 import api from "../../../services/api";
 
@@ -31,6 +31,8 @@ const EditAccount = () => {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
+
+    const goBack = useGoBack();
 
     useEffect(() => {
         if (user) {
@@ -77,6 +79,27 @@ const EditAccount = () => {
             });
     };
 
+    const passwordUpdateHandler = () => {
+        api.put("account/edit", {
+            password,
+            passwordConfirm,
+        })
+            .then(({ data: { data: d } }) => {
+                setUser(d);
+                enqueueSnackbar("Your password was updated successfully.", {
+                    variant: "success",
+                });
+            })
+            .catch((error) => {
+                enqueueSnackbar(
+                    "Oops, something went wrong! Ensure you enter matching passwords.",
+                    {
+                        variant: "error",
+                    }
+                );
+            });
+    };
+
     return (
         <Slide direction="right" in>
             <Grid
@@ -87,10 +110,52 @@ const EditAccount = () => {
             >
                 <Grid container spacing={4}>
                     <Grid item xs={12}>
+                        {isTablet ? (
+                            <Grid
+                                container
+                                direction="column"
+                                justify="center"
+                                alignItems="center"
+                            >
+                                <Button
+                                    onClick={() => {
+                                        goBack();
+                                    }}
+                                    startIcon={<KeyboardReturnIcon />}
+                                    size="small"
+                                    variant="contained"
+                                    style={{
+                                        outline: "none",
+                                        marginTop: "3%",
+                                        backgroundColor: "#fca10d",
+                                    }}
+                                >
+                                    Return
+                                </Button>
+                            </Grid>
+                        ) : (
+                            <Button
+                                onClick={() => {
+                                    goBack();
+                                }}
+                                startIcon={<KeyboardReturnIcon />}
+                                size="small"
+                                variant="contained"
+                                style={{
+                                    outline: "none",
+                                    marginLeft: "24px",
+                                    marginTop: "1%",
+                                    backgroundColor: "#fca10d",
+                                }}
+                            >
+                                Return
+                            </Button>
+                        )}
+
                         <Paper
                             elevation={3}
                             style={{
-                                marginTop: "5%",
+                                marginTop: "2%",
                                 marginLeft: isTablet ? "7%" : "20%",
                                 marginRight: isTablet ? "7%" : "20%",
                                 marginBottom: "5%",
@@ -109,15 +174,17 @@ const EditAccount = () => {
 
                                 <br />
 
-                                <Typography variant="h5">
-                                    {`You joined us on: ${
-                                        user
-                                            ? moment
-                                                  .utc(user.createdAt)
-                                                  .format("DD/MM/YYYY")
-                                            : ""
-                                    }.`}
-                                </Typography>
+                                <div style={{ textAlign: "center" }}>
+                                    <Typography variant="h5">
+                                        {`You joined us on: ${
+                                            user
+                                                ? moment
+                                                      .utc(user.createdAt)
+                                                      .format("DD/MM/YYYY")
+                                                : ""
+                                        }.`}
+                                    </Typography>
+                                </div>
 
                                 <hr />
 
@@ -181,6 +248,7 @@ const EditAccount = () => {
                                 <hr />
 
                                 <Button
+                                    onClick={passwordUpdateHandler}
                                     startIcon={<LockIcon />}
                                     size="large"
                                     variant="contained"
