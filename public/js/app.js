@@ -18462,6 +18462,8 @@ var Subject_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Subje
 
 var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 var Toolbar_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Toolbar */ "./node_modules/@material-ui/core/esm/Toolbar/index.js"));
 
 var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
@@ -18469,8 +18471,6 @@ var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button 
 var AppBar_1 = __importDefault(__webpack_require__(/*! @material-ui/core/AppBar */ "./node_modules/@material-ui/core/esm/AppBar/index.js"));
 
 var Grid_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js"));
-
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
@@ -18482,15 +18482,17 @@ var NavBar = function NavBar(_a) {
   var theme = styles_1.useTheme();
   var isPhone = useMediaQuery_1["default"](theme.breakpoints.down("xs"));
   var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  var history = react_router_dom_1.useHistory();
   return react_1["default"].createElement(react_1["default"].Fragment, null, page ? react_1["default"].createElement(AppBar_1["default"], {
     position: "static"
   }, react_1["default"].createElement(Toolbar_1["default"], {
     style: {
       paddingLeft: isPhone ? "6px" : isTablet ? "8px" : undefined
     }
-  }, react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "/dashboard"
   }, react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/dashboard");
+    },
     startIcon: isPhone ? null : react_1["default"].createElement(Storefront_1["default"], null),
     size: "large",
     variant: "contained",
@@ -18498,19 +18500,22 @@ var NavBar = function NavBar(_a) {
       outline: "none",
       backgroundColor: page.label === "Dashboard" ? "#fca10d" : undefined
     }
-  }, isPhone ? react_1["default"].createElement(Storefront_1["default"], null) : "ShopPal")), react_1["default"].createElement("div", {
+  }, isPhone ? react_1["default"].createElement(Storefront_1["default"], null) : "ShopPal"), react_1["default"].createElement("div", {
     style: {
       display: "flex",
       width: "100%"
     }
   }, react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/lists");
+    },
     startIcon: isPhone ? null : react_1["default"].createElement(Subject_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
-      marginLeft: isPhone ? "6px" : "auto",
       outline: "none",
-      backgroundColor: page.label === "Lists" ? "#fca10d" : undefined
+      backgroundColor: page.label === "Lists" ? "#fca10d" : undefined,
+      marginLeft: isPhone ? "6px" : "auto"
     }
   }, isPhone ? react_1["default"].createElement(Subject_1["default"], null) : "Lists"), react_1["default"].createElement(Button_1["default"], {
     startIcon: isPhone ? null : react_1["default"].createElement(Fastfood_1["default"], null),
@@ -18530,9 +18535,10 @@ var NavBar = function NavBar(_a) {
       outline: "none",
       backgroundColor: page.label === "Extras" ? "#fca10d" : undefined
     }
-  }, isPhone ? react_1["default"].createElement(Extension_1["default"], null) : "Extras"), react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "/account"
-  }, react_1["default"].createElement(Button_1["default"], {
+  }, isPhone ? react_1["default"].createElement(Extension_1["default"], null) : "Extras"), react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/account");
+    },
     startIcon: isPhone ? null : react_1["default"].createElement(AccountBox_1["default"], null),
     size: "large",
     variant: "contained",
@@ -18541,7 +18547,7 @@ var NavBar = function NavBar(_a) {
       outline: "none",
       backgroundColor: page.label === "Account" ? "#fca10d" : undefined
     }
-  }, isPhone ? react_1["default"].createElement(AccountBox_1["default"], null) : "Account")), page.label === "Login" ? null : isPhone || isTablet ? null : react_1["default"].createElement(Logout_1["default"], null))), page.label === "Login" ? null : isPhone || isTablet ? react_1["default"].createElement(Toolbar_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }, isPhone ? react_1["default"].createElement(AccountBox_1["default"], null) : "Account"), page.label === "Login" ? null : isPhone || isTablet ? null : react_1["default"].createElement(Logout_1["default"], null))), page.label === "Login" ? null : isPhone || isTablet ? react_1["default"].createElement(Toolbar_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -19433,6 +19439,8 @@ var Subject_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Subje
 
 var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var Store_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Store */ "./node_modules/@material-ui/icons/Store.js"));
@@ -19453,8 +19461,6 @@ var recoil_1 = __webpack_require__(/*! recoil */ "./node_modules/recoil/es/recoi
 
 var notistack_1 = __webpack_require__(/*! notistack */ "./node_modules/notistack/dist/notistack.esm.js");
 
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-
 var moment_1 = __importDefault(__webpack_require__(/*! moment */ "./node_modules/moment/moment.js"));
 
 var helpers_1 = __webpack_require__(/*! ../../helpers */ "./resources/js/helpers/index.ts");
@@ -19471,6 +19477,7 @@ var Account = function Account() {
   var enqueueSnackbar = notistack_1.useSnackbar().enqueueSnackbar;
   var theme = styles_1.useTheme();
   var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  var history = react_router_dom_1.useHistory();
   var user = recoil_1.useRecoilValue(user_1["default"]);
   var goBack = helpers_1.useGoBack();
   react_1.useEffect(function () {
@@ -19542,12 +19549,19 @@ var Account = function Account() {
     justify: "center",
     alignItems: "center"
   }, react_1["default"].createElement(Typography_1["default"], {
-    variant: "h2"
+    variant: "h2",
+    style: {
+      textAlign: "center"
+    }
   }, (user ? user.name : "") + "'s Profile"), react_1["default"].createElement("br", null), react_1["default"].createElement(Typography_1["default"], {
-    variant: "h5"
-  }, "You joined us on: " + (user ? moment_1["default"].utc(user.createdAt).format("DD/MM/YYYY") : "") + "."), react_1["default"].createElement("hr", null), react_1["default"].createElement(react_router_dom_1.Link, {
-    to: "/account/edit"
-  }, react_1["default"].createElement(Button_1["default"], {
+    variant: "h5",
+    style: {
+      textAlign: "center"
+    }
+  }, "You joined us on: " + (user ? moment_1["default"].utc(user.createdAt).format("DD/MM/YYYY") : "") + "."), react_1["default"].createElement("hr", null), react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/account/edit");
+    },
     startIcon: react_1["default"].createElement(Edit_1["default"], null),
     size: "large",
     variant: "contained",
@@ -19555,7 +19569,191 @@ var Account = function Account() {
       outline: "none",
       backgroundColor: "#fca10d"
     }
-  }, "Edit")), react_1["default"].createElement("hr", null), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
+  }, "Edit"), react_1["default"].createElement("hr", null), react_1["default"].createElement("hr", null), isTablet ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", null, react_1["default"].createElement(Card_1["default"], {
+    variant: "outlined",
+    style: {
+      padding: "10px",
+      width: "300px"
+    }
+  }, react_1["default"].createElement(CardActionArea_1["default"], {
+    style: {
+      outline: "none"
+    },
+    onClick: function onClick() {
+      history.push("lists");
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Subject_1["default"], {
+    style: {
+      height: "50px",
+      width: "50px"
+    }
+  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Typography_1["default"], {
+    variant: "h4"
+  }, "Lists"), react_1["default"].createElement("hr", null), react_1["default"].createElement(Typography_1["default"], {
+    variant: "h5"
+  }, data ? data.listCount : react_1["default"].createElement(CircularProgress_1["default"], null)))))))), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", null, react_1["default"].createElement(Card_1["default"], {
+    variant: "outlined",
+    style: {
+      padding: "10px",
+      width: "300px"
+    }
+  }, react_1["default"].createElement(CardActionArea_1["default"], {
+    style: {
+      outline: "none"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Fastfood_1["default"], {
+    style: {
+      height: "50px",
+      width: "50px"
+    }
+  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Typography_1["default"], {
+    variant: "h4"
+  }, "Products"), react_1["default"].createElement("hr", null), react_1["default"].createElement(Typography_1["default"], {
+    variant: "h5"
+  }, data ? data.productCount : react_1["default"].createElement(CircularProgress_1["default"], null)))))))), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", null, react_1["default"].createElement(Card_1["default"], {
+    variant: "outlined",
+    style: {
+      padding: "10px",
+      width: "300px"
+    }
+  }, react_1["default"].createElement(CardActionArea_1["default"], {
+    style: {
+      outline: "none"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(ShoppingCart_1["default"], {
+    style: {
+      height: "50px",
+      width: "50px"
+    }
+  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Typography_1["default"], {
+    variant: "h4"
+  }, "Shopping Runs"), react_1["default"].createElement("hr", null), react_1["default"].createElement(Typography_1["default"], {
+    variant: "h5"
+  }, data ? data.shoppingRunCount : react_1["default"].createElement(CircularProgress_1["default"], null)))))))), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
+    style: {
+      display: "flex",
+      width: "100%",
+      justifyContent: "space-evenly",
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Card_1["default"], {
+    variant: "outlined",
+    style: {
+      padding: "10px",
+      width: "300px"
+    }
+  }, react_1["default"].createElement(CardActionArea_1["default"], {
+    style: {
+      outline: "none"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(BrandingWatermark_1["default"], {
+    style: {
+      height: "50px",
+      width: "50px"
+    }
+  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Typography_1["default"], {
+    variant: "h4"
+  }, "Brands"), react_1["default"].createElement("hr", null), react_1["default"].createElement(Typography_1["default"], {
+    variant: "h5"
+  }, data ? data.brandCount : react_1["default"].createElement(CircularProgress_1["default"], null)))))))), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", null, react_1["default"].createElement(Card_1["default"], {
+    variant: "outlined",
+    style: {
+      padding: "10px",
+      width: "300px"
+    }
+  }, react_1["default"].createElement(CardActionArea_1["default"], {
+    style: {
+      outline: "none"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Category_1["default"], {
+    style: {
+      height: "50px",
+      width: "50px"
+    }
+  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Typography_1["default"], {
+    variant: "h4"
+  }, "Categories"), react_1["default"].createElement("hr", null), react_1["default"].createElement(Typography_1["default"], {
+    variant: "h5"
+  }, data ? data.categoryCount : react_1["default"].createElement(CircularProgress_1["default"], null)))))))), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", null, react_1["default"].createElement(Card_1["default"], {
+    variant: "outlined",
+    style: {
+      padding: "10px",
+      width: "300px"
+    }
+  }, react_1["default"].createElement(CardActionArea_1["default"], {
+    style: {
+      outline: "none"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Store_1["default"], {
+    style: {
+      height: "50px",
+      width: "50px"
+    }
+  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Typography_1["default"], {
+    variant: "h4"
+  }, "Shops"), react_1["default"].createElement("hr", null), react_1["default"].createElement(Typography_1["default"], {
+    variant: "h5"
+  }, data ? data.shopCount : react_1["default"].createElement(CircularProgress_1["default"], null))))))))) : react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("div", {
     style: {
       display: "flex",
       width: "100%",
@@ -19571,6 +19769,9 @@ var Account = function Account() {
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
       outline: "none"
+    },
+    onClick: function onClick() {
+      history.push("lists");
     }
   }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
@@ -19743,7 +19944,7 @@ var Account = function Account() {
     variant: "h4"
   }, "Shops"), react_1["default"].createElement("hr", null), react_1["default"].createElement(Typography_1["default"], {
     variant: "h5"
-  }, data ? data.shopCount : react_1["default"].createElement(CircularProgress_1["default"], null))))))))))))));
+  }, data ? data.shopCount : react_1["default"].createElement(CircularProgress_1["default"], null)))))))))))))));
 };
 
 exports.default = Account;
@@ -19823,6 +20024,8 @@ var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modul
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
 var Paper_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js"));
 
 var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
@@ -19849,6 +20052,7 @@ var Dashboard = function Dashboard() {
   var enqueueSnackbar = notistack_1.useSnackbar().enqueueSnackbar;
   var theme = styles_1.useTheme();
   var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  var history = react_router_dom_1.useHistory();
   var user = recoil_1.useRecoilValue(user_1["default"]);
   react_1.useEffect(function () {
     api_1["default"].get("/dashboard").then(function (_a) {
@@ -19904,6 +20108,9 @@ var Dashboard = function Dashboard() {
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
       outline: "none"
+    },
+    onClick: function onClick() {
+      history.push("/lists");
     }
   }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
@@ -19996,7 +20203,11 @@ var Dashboard = function Dashboard() {
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
-      outline: "none"
+      outline: "none",
+      textDecoration: "none"
+    },
+    onClick: function onClick() {
+      history.push("/lists");
     }
   }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
@@ -20095,6 +20306,128 @@ var Dashboard = function Dashboard() {
 };
 
 exports.default = Dashboard;
+
+/***/ }),
+
+/***/ "./resources/js/pages/Lists/index.tsx":
+/*!********************************************!*\
+  !*** ./resources/js/pages/Lists/index.tsx ***!
+  \********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var useMediaQuery_1 = __importDefault(__webpack_require__(/*! @material-ui/core/useMediaQuery */ "./node_modules/@material-ui/core/esm/useMediaQuery/index.js"));
+
+var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Paper_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js"));
+
+var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
+
+var Grid_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js"));
+
+var notistack_1 = __webpack_require__(/*! notistack */ "./node_modules/notistack/dist/notistack.esm.js");
+
+var api_1 = __importDefault(__webpack_require__(/*! ../../services/api */ "./resources/js/services/api/index.ts"));
+
+var Lists = function Lists() {
+  var _a = react_1.useState(null),
+      data = _a[0],
+      setData = _a[1];
+
+  var enqueueSnackbar = notistack_1.useSnackbar().enqueueSnackbar;
+  var theme = styles_1.useTheme();
+  var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  react_1.useEffect(function () {
+    api_1["default"].get("/lists").then(function (_a) {
+      var d = _a.data.data;
+      setData(d);
+    })["catch"](function () {
+      enqueueSnackbar("Failed to get lists!", {
+        variant: "error"
+      });
+    });
+  }, [enqueueSnackbar]);
+  return react_1["default"].createElement(Slide_1["default"], {
+    direction: "right",
+    "in": true
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    spacing: 4
+  }, react_1["default"].createElement(Grid_1["default"], {
+    item: true,
+    xs: 12
+  }, react_1["default"].createElement(Paper_1["default"], {
+    elevation: 3,
+    style: {
+      marginTop: "5%",
+      marginLeft: isTablet ? "7%" : "20%",
+      marginRight: isTablet ? "7%" : "20%",
+      marginBottom: "5%",
+      padding: isTablet ? "18px" : "25px"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }))))));
+};
+
+exports.default = Lists;
 
 /***/ }),
 
@@ -20363,6 +20696,7 @@ var EPages;
   EPages["Dashboard"] = "dashboard";
   EPages["Account"] = "account";
   EPages["EditAccount"] = "editAccount";
+  EPages["Lists"] = "lists";
 })(EPages = exports.EPages || (exports.EPages = {}));
 
 /***/ }),
@@ -20411,6 +20745,8 @@ var Account_1 = __importDefault(__webpack_require__(/*! ./Account */ "./resource
 
 var Login_1 = __importDefault(__webpack_require__(/*! ./Login */ "./resources/js/pages/Login/index.tsx"));
 
+var Lists_1 = __importDefault(__webpack_require__(/*! ./Lists */ "./resources/js/pages/Lists/index.tsx"));
+
 var unauthed = [{
   name: enums_1.EPages.Login,
   label: "Login",
@@ -20435,6 +20771,12 @@ var authed = [{
   label: "Account",
   path: "/account/edit",
   Component: Edit_1["default"],
+  authed: true
+}, {
+  name: enums_1.EPages.Lists,
+  label: "Lists",
+  path: "/lists",
+  Component: Lists_1["default"],
   authed: true
 }];
 exports.pages = __spreadArrays(unauthed, authed);

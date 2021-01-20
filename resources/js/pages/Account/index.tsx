@@ -10,6 +10,7 @@ import FastfoodIcon from "@material-ui/icons/Fastfood";
 import Typography from "@material-ui/core/Typography";
 import SubjectIcon from "@material-ui/icons/Subject";
 import { useTheme } from "@material-ui/core/styles";
+import { Link, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import StoreIcon from "@material-ui/icons/Store";
 import EditIcon from "@material-ui/icons/Edit";
@@ -20,7 +21,6 @@ import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import { useRecoilValue } from "recoil";
 import { useSnackbar } from "notistack";
-import { Link } from "react-router-dom";
 import moment from "moment";
 
 import { useGoBack } from "../../helpers";
@@ -34,6 +34,8 @@ const Account: React.FC = () => {
 
     const theme = useTheme();
     const isTablet = useMediaQuery(theme.breakpoints.down("sm"));
+
+    const history = useHistory();
 
     const user = useRecoilValue(userAtom);
 
@@ -119,13 +121,19 @@ const Account: React.FC = () => {
                                 justify="center"
                                 alignItems="center"
                             >
-                                <Typography variant="h2">
+                                <Typography
+                                    variant="h2"
+                                    style={{ textAlign: "center" }}
+                                >
                                     {`${user ? user.name : ""}'s Profile`}
                                 </Typography>
 
                                 <br />
 
-                                <Typography variant="h5">
+                                <Typography
+                                    variant="h5"
+                                    style={{ textAlign: "center" }}
+                                >
                                     {`You joined us on: ${
                                         user
                                             ? moment
@@ -137,330 +145,662 @@ const Account: React.FC = () => {
 
                                 <hr />
 
-                                <Link to="/account/edit">
-                                    <Button
-                                        startIcon={<EditIcon />}
-                                        size="large"
-                                        variant="contained"
-                                        style={{
-                                            outline: "none",
-                                            backgroundColor: "#fca10d",
-                                        }}
-                                    >
-                                        Edit
-                                    </Button>
-                                </Link>
-
-                                <hr />
-                                <hr />
-
-                                <div
+                                <Button
+                                    onClick={() => {
+                                        history.push("/account/edit");
+                                    }}
+                                    startIcon={<EditIcon />}
+                                    size="large"
+                                    variant="contained"
                                     style={{
-                                        display: "flex",
-                                        width: "100%",
-                                        justifyContent: "space-evenly",
-                                        textAlign: "center",
+                                        outline: "none",
+                                        backgroundColor: "#fca10d",
                                     }}
                                 >
-                                    <Card
-                                        variant="outlined"
-                                        style={{
-                                            flex: 0.3,
-                                            padding: "10px",
-                                        }}
-                                    >
-                                        <CardActionArea
-                                            style={{
-                                                outline: "none",
-                                            }}
-                                        >
-                                            <Grid
-                                                container
-                                                direction="column"
-                                                justify="center"
-                                                alignItems="center"
-                                            >
-                                                <SubjectIcon
-                                                    style={{
-                                                        height: "50px",
-                                                        width: "50px",
-                                                    }}
-                                                />
-                                                <CardContent>
-                                                    <Grid
-                                                        container
-                                                        direction="column"
-                                                        justify="center"
-                                                        alignItems="center"
-                                                    >
-                                                        <Typography variant="h4">
-                                                            Lists
-                                                        </Typography>
-                                                        <hr />
-                                                        <Typography variant="h5">
-                                                            {data ? (
-                                                                data.listCount
-                                                            ) : (
-                                                                <CircularProgress />
-                                                            )}
-                                                        </Typography>
-                                                    </Grid>
-                                                </CardContent>
-                                            </Grid>
-                                        </CardActionArea>
-                                    </Card>
-
-                                    <Card
-                                        variant="outlined"
-                                        style={{
-                                            flex: 0.3,
-                                            padding: "10px",
-                                        }}
-                                    >
-                                        <CardActionArea
-                                            style={{
-                                                outline: "none",
-                                            }}
-                                        >
-                                            <Grid
-                                                container
-                                                direction="column"
-                                                justify="center"
-                                                alignItems="center"
-                                            >
-                                                <FastfoodIcon
-                                                    style={{
-                                                        height: "50px",
-                                                        width: "50px",
-                                                    }}
-                                                />
-                                                <CardContent>
-                                                    <Grid
-                                                        container
-                                                        direction="column"
-                                                        justify="center"
-                                                        alignItems="center"
-                                                    >
-                                                        <Typography variant="h4">
-                                                            Products
-                                                        </Typography>
-                                                        <hr />
-                                                        <Typography variant="h5">
-                                                            {data ? (
-                                                                data.productCount
-                                                            ) : (
-                                                                <CircularProgress />
-                                                            )}
-                                                        </Typography>
-                                                    </Grid>
-                                                </CardContent>
-                                            </Grid>
-                                        </CardActionArea>
-                                    </Card>
-
-                                    <Card
-                                        variant="outlined"
-                                        style={{
-                                            flex: 0.3,
-                                            padding: "10px",
-                                        }}
-                                    >
-                                        <CardActionArea
-                                            style={{
-                                                outline: "none",
-                                            }}
-                                        >
-                                            <Grid
-                                                container
-                                                direction="column"
-                                                justify="center"
-                                                alignItems="center"
-                                            >
-                                                <ShoppingCartIcon
-                                                    style={{
-                                                        height: "50px",
-                                                        width: "50px",
-                                                    }}
-                                                />
-                                                <CardContent>
-                                                    <Grid
-                                                        container
-                                                        direction="column"
-                                                        justify="center"
-                                                        alignItems="center"
-                                                    >
-                                                        <Typography variant="h4">
-                                                            Shopping Runs
-                                                        </Typography>
-                                                        <hr />
-                                                        <Typography variant="h5">
-                                                            {data ? (
-                                                                data.shoppingRunCount
-                                                            ) : (
-                                                                <CircularProgress />
-                                                            )}
-                                                        </Typography>
-                                                    </Grid>
-                                                </CardContent>
-                                            </Grid>
-                                        </CardActionArea>
-                                    </Card>
-                                </div>
+                                    Edit
+                                </Button>
 
                                 <hr />
+                                <hr />
 
-                                <div
-                                    style={{
-                                        display: "flex",
-                                        width: "100%",
-                                        justifyContent: "space-evenly",
-                                        textAlign: "center",
-                                    }}
-                                >
-                                    <Card
-                                        variant="outlined"
-                                        style={{
-                                            flex: 0.3,
-                                            padding: "10px",
-                                        }}
-                                    >
-                                        <CardActionArea
-                                            style={{
-                                                outline: "none",
-                                            }}
-                                        >
-                                            <Grid
-                                                container
-                                                direction="column"
-                                                justify="center"
-                                                alignItems="center"
+                                {isTablet ? (
+                                    <React.Fragment>
+                                        <div>
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    padding: "10px",
+                                                    width: "300px",
+                                                }}
                                             >
-                                                <BrandingWatermarkIcon
+                                                <CardActionArea
                                                     style={{
-                                                        height: "50px",
-                                                        width: "50px",
+                                                        outline: "none",
                                                     }}
-                                                />
-                                                <CardContent>
+                                                    onClick={() => {
+                                                        history.push("lists");
+                                                    }}
+                                                >
                                                     <Grid
                                                         container
                                                         direction="column"
                                                         justify="center"
                                                         alignItems="center"
                                                     >
-                                                        <Typography variant="h4">
-                                                            Brands
-                                                        </Typography>
-                                                        <hr />
-                                                        <Typography variant="h5">
-                                                            {data ? (
-                                                                data.brandCount
-                                                            ) : (
-                                                                <CircularProgress />
-                                                            )}
-                                                        </Typography>
+                                                        <SubjectIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Lists
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.listCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
                                                     </Grid>
-                                                </CardContent>
-                                            </Grid>
-                                        </CardActionArea>
-                                    </Card>
+                                                </CardActionArea>
+                                            </Card>
+                                        </div>
 
-                                    <Card
-                                        variant="outlined"
-                                        style={{
-                                            flex: 0.3,
-                                            padding: "10px",
-                                        }}
-                                    >
-                                        <CardActionArea
-                                            style={{
-                                                outline: "none",
-                                            }}
-                                        >
-                                            <Grid
-                                                container
-                                                direction="column"
-                                                justify="center"
-                                                alignItems="center"
+                                        <hr />
+
+                                        <div>
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    padding: "10px",
+                                                    width: "300px",
+                                                }}
                                             >
-                                                <CategoryIcon
+                                                <CardActionArea
                                                     style={{
-                                                        height: "50px",
-                                                        width: "50px",
+                                                        outline: "none",
                                                     }}
-                                                />
-                                                <CardContent>
+                                                >
                                                     <Grid
                                                         container
                                                         direction="column"
                                                         justify="center"
                                                         alignItems="center"
                                                     >
-                                                        <Typography variant="h4">
-                                                            Categories
-                                                        </Typography>
-                                                        <hr />
-                                                        <Typography variant="h5">
-                                                            {data ? (
-                                                                data.categoryCount
-                                                            ) : (
-                                                                <CircularProgress />
-                                                            )}
-                                                        </Typography>
+                                                        <FastfoodIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Products
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.productCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
                                                     </Grid>
-                                                </CardContent>
-                                            </Grid>
-                                        </CardActionArea>
-                                    </Card>
+                                                </CardActionArea>
+                                            </Card>
+                                        </div>
 
-                                    <Card
-                                        variant="outlined"
-                                        style={{
-                                            flex: 0.3,
-                                            padding: "10px",
-                                        }}
-                                    >
-                                        <CardActionArea
-                                            style={{
-                                                outline: "none",
-                                            }}
-                                        >
-                                            <Grid
-                                                container
-                                                direction="column"
-                                                justify="center"
-                                                alignItems="center"
+                                        <hr />
+
+                                        <div>
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    padding: "10px",
+                                                    width: "300px",
+                                                }}
                                             >
-                                                <StoreIcon
+                                                <CardActionArea
                                                     style={{
-                                                        height: "50px",
-                                                        width: "50px",
+                                                        outline: "none",
                                                     }}
-                                                />
-                                                <CardContent>
+                                                >
                                                     <Grid
                                                         container
                                                         direction="column"
                                                         justify="center"
                                                         alignItems="center"
                                                     >
-                                                        <Typography variant="h4">
-                                                            Shops
-                                                        </Typography>
-                                                        <hr />
-                                                        <Typography variant="h5">
-                                                            {data ? (
-                                                                data.shopCount
-                                                            ) : (
-                                                                <CircularProgress />
-                                                            )}
-                                                        </Typography>
+                                                        <ShoppingCartIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Shopping
+                                                                    Runs
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.shoppingRunCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
                                                     </Grid>
-                                                </CardContent>
-                                            </Grid>
-                                        </CardActionArea>
-                                    </Card>
-                                </div>
+                                                </CardActionArea>
+                                            </Card>
+                                        </div>
+
+                                        <hr />
+
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                width: "100%",
+                                                justifyContent: "space-evenly",
+                                                textAlign: "center",
+                                            }}
+                                        >
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    padding: "10px",
+                                                    width: "300px",
+                                                }}
+                                            >
+                                                <CardActionArea
+                                                    style={{
+                                                        outline: "none",
+                                                    }}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        direction="column"
+                                                        justify="center"
+                                                        alignItems="center"
+                                                    >
+                                                        <BrandingWatermarkIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Brands
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.brandCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Grid>
+                                                </CardActionArea>
+                                            </Card>
+                                        </div>
+
+                                        <hr />
+
+                                        <div>
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    padding: "10px",
+                                                    width: "300px",
+                                                }}
+                                            >
+                                                <CardActionArea
+                                                    style={{
+                                                        outline: "none",
+                                                    }}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        direction="column"
+                                                        justify="center"
+                                                        alignItems="center"
+                                                    >
+                                                        <CategoryIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Categories
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.categoryCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Grid>
+                                                </CardActionArea>
+                                            </Card>
+                                        </div>
+
+                                        <hr />
+
+                                        <div>
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    padding: "10px",
+                                                    width: "300px",
+                                                }}
+                                            >
+                                                <CardActionArea
+                                                    style={{
+                                                        outline: "none",
+                                                    }}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        direction="column"
+                                                        justify="center"
+                                                        alignItems="center"
+                                                    >
+                                                        <StoreIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Shops
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.shopCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Grid>
+                                                </CardActionArea>
+                                            </Card>
+                                        </div>
+                                    </React.Fragment>
+                                ) : (
+                                    <React.Fragment>
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                width: "100%",
+                                                justifyContent: "space-evenly",
+                                                textAlign: "center",
+                                            }}
+                                        >
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    flex: 0.3,
+                                                    padding: "10px",
+                                                }}
+                                            >
+                                                <CardActionArea
+                                                    style={{
+                                                        outline: "none",
+                                                    }}
+                                                    onClick={() => {
+                                                        history.push("lists");
+                                                    }}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        direction="column"
+                                                        justify="center"
+                                                        alignItems="center"
+                                                    >
+                                                        <SubjectIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Lists
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.listCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Grid>
+                                                </CardActionArea>
+                                            </Card>
+
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    flex: 0.3,
+                                                    padding: "10px",
+                                                }}
+                                            >
+                                                <CardActionArea
+                                                    style={{
+                                                        outline: "none",
+                                                    }}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        direction="column"
+                                                        justify="center"
+                                                        alignItems="center"
+                                                    >
+                                                        <FastfoodIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Products
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.productCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Grid>
+                                                </CardActionArea>
+                                            </Card>
+
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    flex: 0.3,
+                                                    padding: "10px",
+                                                }}
+                                            >
+                                                <CardActionArea
+                                                    style={{
+                                                        outline: "none",
+                                                    }}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        direction="column"
+                                                        justify="center"
+                                                        alignItems="center"
+                                                    >
+                                                        <ShoppingCartIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Shopping
+                                                                    Runs
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.shoppingRunCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Grid>
+                                                </CardActionArea>
+                                            </Card>
+                                        </div>
+
+                                        <hr />
+
+                                        <div
+                                            style={{
+                                                display: "flex",
+                                                width: "100%",
+                                                justifyContent: "space-evenly",
+                                                textAlign: "center",
+                                            }}
+                                        >
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    flex: 0.3,
+                                                    padding: "10px",
+                                                }}
+                                            >
+                                                <CardActionArea
+                                                    style={{
+                                                        outline: "none",
+                                                    }}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        direction="column"
+                                                        justify="center"
+                                                        alignItems="center"
+                                                    >
+                                                        <BrandingWatermarkIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Brands
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.brandCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Grid>
+                                                </CardActionArea>
+                                            </Card>
+
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    flex: 0.3,
+                                                    padding: "10px",
+                                                }}
+                                            >
+                                                <CardActionArea
+                                                    style={{
+                                                        outline: "none",
+                                                    }}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        direction="column"
+                                                        justify="center"
+                                                        alignItems="center"
+                                                    >
+                                                        <CategoryIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Categories
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.categoryCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Grid>
+                                                </CardActionArea>
+                                            </Card>
+
+                                            <Card
+                                                variant="outlined"
+                                                style={{
+                                                    flex: 0.3,
+                                                    padding: "10px",
+                                                }}
+                                            >
+                                                <CardActionArea
+                                                    style={{
+                                                        outline: "none",
+                                                    }}
+                                                >
+                                                    <Grid
+                                                        container
+                                                        direction="column"
+                                                        justify="center"
+                                                        alignItems="center"
+                                                    >
+                                                        <StoreIcon
+                                                            style={{
+                                                                height: "50px",
+                                                                width: "50px",
+                                                            }}
+                                                        />
+                                                        <CardContent>
+                                                            <Grid
+                                                                container
+                                                                direction="column"
+                                                                justify="center"
+                                                                alignItems="center"
+                                                            >
+                                                                <Typography variant="h4">
+                                                                    Shops
+                                                                </Typography>
+                                                                <hr />
+                                                                <Typography variant="h5">
+                                                                    {data ? (
+                                                                        data.shopCount
+                                                                    ) : (
+                                                                        <CircularProgress />
+                                                                    )}
+                                                                </Typography>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Grid>
+                                                </CardActionArea>
+                                            </Card>
+                                        </div>
+                                    </React.Fragment>
+                                )}
                             </Grid>
                         </Paper>
                     </Grid>

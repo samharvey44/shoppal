@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import SubjectIcon from "@material-ui/icons/Subject";
 import { useTheme } from "@material-ui/core/styles";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Paper from "@material-ui/core/Paper";
 import Slide from "@material-ui/core/Slide";
 import Card from "@material-ui/core/Card";
@@ -26,6 +27,8 @@ const Dashboard: React.FC = () => {
 
     const theme = useTheme();
     const isTablet = useMediaQuery(theme.breakpoints.down("sm"));
+
+    const history = useHistory();
 
     const user = useRecoilValue(userAtom);
 
@@ -100,6 +103,9 @@ const Dashboard: React.FC = () => {
                                                 <CardActionArea
                                                     style={{
                                                         outline: "none",
+                                                    }}
+                                                    onClick={() => {
+                                                        history.push("/lists");
                                                     }}
                                                 >
                                                     <Grid
@@ -262,6 +268,10 @@ const Dashboard: React.FC = () => {
                                             <CardActionArea
                                                 style={{
                                                     outline: "none",
+                                                    textDecoration: "none",
+                                                }}
+                                                onClick={() => {
+                                                    history.push(`/lists`);
                                                 }}
                                             >
                                                 <Grid
