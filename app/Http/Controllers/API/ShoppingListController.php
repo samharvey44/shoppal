@@ -14,6 +14,6 @@ use Auth;
 class ShoppingListController extends Controller
 {
     public function index() {
-        return ShoppingListResource::collection(ShoppingList::get());
+        return ShoppingListResource::collection(ShoppingList::where('user_id', Auth::id())->get());
     }
 }

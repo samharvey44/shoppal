@@ -22,4 +22,8 @@ class ShoppingList extends Model
     public function shoppingRuns() {
         return $this->hasMany(ShoppingRun::class, 'shopping_list_id');
     }
+
+    public function shop() {
+        return $this->belongsTo(Shop::class, 'shop_id');
+    }
 }

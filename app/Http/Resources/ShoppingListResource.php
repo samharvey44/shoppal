@@ -19,7 +19,9 @@ class ShoppingListResource extends JsonResource
            'name' => $this->name,
            'complete' => $this->complete,
            'notes' => $this->notes,
-           'shop_id' => $this->shop_id,
+           'shop' => ShopResource::make($this->shop),
+           'createdAt' => $this->created_at,
+           'updatedAt' => $this->updated_at,
        ];
     }
 }
