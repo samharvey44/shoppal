@@ -19306,22 +19306,77 @@ var NavBar = function NavBar(_a) {
   var history = react_router_dom_1.useHistory();
   return react_1["default"].createElement(react_1["default"].Fragment, null, page ? react_1["default"].createElement(AppBar_1["default"], {
     position: "static"
-  }, react_1["default"].createElement(Toolbar_1["default"], {
+  }, isPhone ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Toolbar_1["default"], {
     style: {
-      paddingLeft: isPhone ? "6px" : isTablet ? "8px" : undefined
+      paddingLeft: "6px"
     }
+  }, react_1["default"].createElement("div", {
+    style: {
+      display: "flex",
+      width: "100%"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/lists");
+    },
+    size: "large",
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: page.label === "Lists" ? "#fca10d" : undefined,
+      marginLeft: "6px"
+    }
+  }, react_1["default"].createElement(Subject_1["default"], null)), react_1["default"].createElement(Button_1["default"], {
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "8px",
+      outline: "none",
+      backgroundColor: page.label === "Products" ? "#fca10d" : undefined
+    }
+  }, react_1["default"].createElement(Fastfood_1["default"], null)), react_1["default"].createElement(Button_1["default"], {
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "6px",
+      outline: "none",
+      backgroundColor: page.label === "Extras" ? "#fca10d" : undefined
+    }
+  }, react_1["default"].createElement(Extension_1["default"], null)), react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/account");
+    },
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "6px",
+      outline: "none",
+      backgroundColor: page.label === "Account" ? "#fca10d" : undefined
+    }
+  }, react_1["default"].createElement(AccountBox_1["default"], null))))), react_1["default"].createElement(Toolbar_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    justify: "center",
+    alignItems: "center"
   }, react_1["default"].createElement(Button_1["default"], {
     onClick: function onClick() {
       history.push("/dashboard");
     },
-    startIcon: isPhone ? null : react_1["default"].createElement(Storefront_1["default"], null),
+    startIcon: react_1["default"].createElement(Storefront_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
       outline: "none",
       backgroundColor: page.label === "Dashboard" ? "#fca10d" : undefined
     }
-  }, isPhone ? react_1["default"].createElement(Storefront_1["default"], null) : "ShopPal"), react_1["default"].createElement("div", {
+  }, "ShopPal"), react_1["default"].createElement(Logout_1["default"], null)))) : isTablet && !isPhone ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Toolbar_1["default"], {
+    style: {
+      paddingLeft: "8px"
+    }
+  }, react_1["default"].createElement("div", {
     style: {
       display: "flex",
       width: "100%"
@@ -19330,16 +19385,16 @@ var NavBar = function NavBar(_a) {
     onClick: function onClick() {
       history.push("/lists");
     },
-    startIcon: isPhone ? null : react_1["default"].createElement(Subject_1["default"], null),
+    startIcon: react_1["default"].createElement(Subject_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
       outline: "none",
       backgroundColor: page.label === "Lists" ? "#fca10d" : undefined,
-      marginLeft: isPhone ? "6px" : "auto"
+      marginLeft: "auto"
     }
-  }, isPhone ? react_1["default"].createElement(Subject_1["default"], null) : "Lists"), react_1["default"].createElement(Button_1["default"], {
-    startIcon: isPhone ? null : react_1["default"].createElement(Fastfood_1["default"], null),
+  }, "Lists"), react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(Fastfood_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
@@ -19347,33 +19402,105 @@ var NavBar = function NavBar(_a) {
       outline: "none",
       backgroundColor: page.label === "Products" ? "#fca10d" : undefined
     }
-  }, isPhone ? react_1["default"].createElement(Fastfood_1["default"], null) : "Products"), react_1["default"].createElement(Button_1["default"], {
-    startIcon: isPhone ? null : react_1["default"].createElement(Extension_1["default"], null),
+  }, "Products"), react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(Extension_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
-      marginLeft: isPhone ? "6px" : "8px",
+      marginLeft: "8px",
       outline: "none",
       backgroundColor: page.label === "Extras" ? "#fca10d" : undefined
     }
-  }, isPhone ? react_1["default"].createElement(Extension_1["default"], null) : "Extras"), react_1["default"].createElement(Button_1["default"], {
+  }, "Extras"), react_1["default"].createElement(Button_1["default"], {
     onClick: function onClick() {
       history.push("/account");
     },
-    startIcon: isPhone ? null : react_1["default"].createElement(AccountBox_1["default"], null),
+    startIcon: react_1["default"].createElement(AccountBox_1["default"], null),
     size: "large",
     variant: "contained",
     style: {
-      marginLeft: isPhone ? "6px" : "8px",
+      marginLeft: "8px",
       outline: "none",
       backgroundColor: page.label === "Account" ? "#fca10d" : undefined
     }
-  }, isPhone ? react_1["default"].createElement(AccountBox_1["default"], null) : "Account"), page.label === "Login" ? null : isPhone || isTablet ? null : react_1["default"].createElement(Logout_1["default"], null))), page.label === "Login" ? null : isPhone || isTablet ? react_1["default"].createElement(Toolbar_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }, "Account"), react_1["default"].createElement(Logout_1["default"], null))), react_1["default"].createElement(Toolbar_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
     container: true,
-    direction: "column",
     justify: "center",
     alignItems: "center"
-  }, react_1["default"].createElement(Logout_1["default"], null))) : null) : react_1["default"].createElement(CircularProgress_1["default"], null), children);
+  }, react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(Storefront_1["default"], null),
+    onClick: function onClick() {
+      history.push("/dashboard");
+    },
+    size: "large",
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: page.label === "Dashboard" ? "#fca10d" : undefined
+    }
+  }, "ShopPal"), react_1["default"].createElement(Logout_1["default"], null)))) : react_1["default"].createElement(Toolbar_1["default"], {
+    style: {
+      paddingLeft: isTablet ? "8px" : undefined
+    }
+  }, react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/dashboard");
+    },
+    startIcon: react_1["default"].createElement(Storefront_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: page.label === "Dashboard" ? "#fca10d" : undefined
+    }
+  }, "ShopPal"), react_1["default"].createElement("div", {
+    style: {
+      display: "flex",
+      width: "100%"
+    }
+  }, react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/lists");
+    },
+    startIcon: react_1["default"].createElement(Subject_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: page.label === "Lists" ? "#fca10d" : undefined,
+      marginLeft: "auto"
+    }
+  }, "Lists"), react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(Fastfood_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "8px",
+      outline: "none",
+      backgroundColor: page.label === "Products" ? "#fca10d" : undefined
+    }
+  }, "Products"), react_1["default"].createElement(Button_1["default"], {
+    startIcon: react_1["default"].createElement(Extension_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "8px",
+      outline: "none",
+      backgroundColor: page.label === "Extras" ? "#fca10d" : undefined
+    }
+  }, "Extras"), react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/account");
+    },
+    startIcon: react_1["default"].createElement(AccountBox_1["default"], null),
+    size: "large",
+    variant: "contained",
+    style: {
+      marginLeft: "8px",
+      outline: "none",
+      backgroundColor: page.label === "Account" ? "#fca10d" : undefined
+    }
+  }, "Account"), react_1["default"].createElement(Logout_1["default"], null)))) : react_1["default"].createElement(CircularProgress_1["default"], null), children);
 };
 
 exports.default = NavBar;
@@ -19609,7 +19736,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.useGoBack = exports.Location = exports.timeOfDay = exports.toFormData = void 0;
+exports.ellipsise = exports.useGoBack = exports.Location = exports.timeOfDay = exports.toFormData = void 0;
 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
@@ -19707,6 +19834,12 @@ var useGoBack = function useGoBack() {
 };
 
 exports.useGoBack = useGoBack;
+
+var ellipsise = function ellipsise(str, length) {
+  return str.length > length ? str.slice(0, length) + "..." : str;
+};
+
+exports.ellipsise = ellipsise;
 
 /***/ }),
 
@@ -20260,8 +20393,6 @@ var Subject_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Subje
 
 var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var Store_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Store */ "./node_modules/@material-ui/icons/Store.js"));
@@ -20269,6 +20400,8 @@ var Store_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Store *
 var Edit_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Edit */ "./node_modules/@material-ui/icons/Edit.js"));
 
 var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
+
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
 
@@ -20299,8 +20432,8 @@ var Account = function Account() {
   var theme = styles_1.useTheme();
   var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
   var history = react_router_dom_1.useHistory();
-  var user = recoil_1.useRecoilValue(user_1["default"]);
   var goBack = helpers_1.useGoBack();
+  var user = recoil_1.useRecoilValue(user_1["default"]);
   react_1.useEffect(function () {
     api_1["default"].get("/account").then(function (_a) {
       var d = _a.data.data;
@@ -21183,7 +21316,11 @@ Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
 
+var KeyboardReturn_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/KeyboardReturn */ "./node_modules/@material-ui/icons/KeyboardReturn.js"));
+
 var CircularProgress_1 = __importDefault(__webpack_require__(/*! @material-ui/core/CircularProgress */ "./node_modules/@material-ui/core/esm/CircularProgress/index.js"));
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
 var CardActionArea_1 = __importDefault(__webpack_require__(/*! @material-ui/core/CardActionArea */ "./node_modules/@material-ui/core/esm/CardActionArea/index.js"));
 
@@ -21195,13 +21332,13 @@ var Typography_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Typ
 
 var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-
 var Checkbox_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Checkbox */ "./node_modules/@material-ui/core/esm/Checkbox/index.js"));
 
-var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
-var Paper_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js"));
+var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
+
+var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
 
 var Card_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js"));
 
@@ -21210,6 +21347,8 @@ var Grid_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Grid */ "
 var notistack_1 = __webpack_require__(/*! notistack */ "./node_modules/notistack/dist/notistack.esm.js");
 
 var moment_1 = __importDefault(__webpack_require__(/*! moment */ "./node_modules/moment/moment.js"));
+
+var helpers_1 = __webpack_require__(/*! ../../helpers */ "./resources/js/helpers/index.ts");
 
 var api_1 = __importDefault(__webpack_require__(/*! ../../services/api */ "./resources/js/services/api/index.ts"));
 
@@ -21221,13 +21360,18 @@ var Lists = function Lists() {
   var enqueueSnackbar = notistack_1.useSnackbar().enqueueSnackbar;
   var theme = styles_1.useTheme();
   var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  var history = react_router_dom_1.useHistory();
+  var goBack = helpers_1.useGoBack();
+  var getLists = react_1.useCallback(function (s) {
+    if (s === void 0) {
+      s = false;
+    }
 
-  var _b = react_1.useState(false),
-      checked = _b[0],
-      setChecked = _b[1];
-
-  react_1.useEffect(function () {
-    api_1["default"].get("/lists").then(function (_a) {
+    api_1["default"].get("/lists", {
+      params: {
+        search: s
+      }
+    }).then(function (_a) {
       var d = _a.data.data;
       setLists(d);
     })["catch"](function () {
@@ -21236,9 +21380,12 @@ var Lists = function Lists() {
       });
     });
   }, [enqueueSnackbar]);
+  react_1.useEffect(function () {
+    getLists();
+  }, [getLists]);
 
   var handleChecked = function handleChecked(e) {
-    setChecked(e.target.checked);
+    getLists(e.target.checked);
   };
 
   return react_1["default"].createElement(Slide_1["default"], {
@@ -21255,9 +21402,39 @@ var Lists = function Lists() {
   }, react_1["default"].createElement(Grid_1["default"], {
     item: true,
     xs: 12
-  }, react_1["default"].createElement("div", {
+  }, isTablet ? react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      goBack();
+    },
+    startIcon: react_1["default"].createElement(KeyboardReturn_1["default"], null),
+    size: "small",
+    variant: "contained",
     style: {
-      marginTop: "5%",
+      outline: "none",
+      marginTop: "3%",
+      backgroundColor: "#fca10d"
+    }
+  }, "Return")) : react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      goBack();
+    },
+    startIcon: react_1["default"].createElement(KeyboardReturn_1["default"], null),
+    size: "small",
+    variant: "contained",
+    style: {
+      outline: "none",
+      marginLeft: "24px",
+      marginTop: "1%",
+      backgroundColor: "#fca10d"
+    }
+  }, "Return"), react_1["default"].createElement("div", {
+    style: {
+      marginTop: "3%",
       marginLeft: isTablet ? "7%" : "10%",
       marginRight: isTablet ? "7%" : "10%",
       marginBottom: "5%",
@@ -21268,28 +21445,29 @@ var Lists = function Lists() {
     direction: "column",
     justify: "center",
     alignItems: "center"
-  }, react_1["default"].createElement(Paper_1["default"], {
+  }, react_1["default"].createElement(Button_1["default"], {
+    size: "large",
+    variant: "contained",
     style: {
-      padding: "15px"
-    },
-    elevation: 3
-  }, react_1["default"].createElement(Grid_1["default"], {
-    container: true,
-    direction: "column",
-    justify: "center",
-    alignItems: "center"
+      outline: "none",
+      backgroundColor: "#fca10d"
+    }
+  }, "Create a List"), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
+    style: {
+      display: "flex"
+    }
   }, react_1["default"].createElement(Typography_1["default"], {
     variant: "subtitle1",
     style: {
-      fontWeight: "bold"
+      marginTop: "8px"
     }
-  }, "Show Completed?"), react_1["default"].createElement(Checkbox_1["default"], {
+  }, "Show completed"), react_1["default"].createElement(Checkbox_1["default"], {
     style: {
       color: "#fca10d"
     },
-    checked: checked,
-    onChange: handleChecked
-  }))), isTablet ? null : react_1["default"].createElement("hr", null), react_1["default"].createElement(Grid_1["default"], {
+    onChange: handleChecked,
+    defaultChecked: false
+  })), isTablet ? null : react_1["default"].createElement("hr", null), react_1["default"].createElement(Grid_1["default"], {
     container: true,
     spacing: 2,
     style: {
@@ -21319,20 +21497,25 @@ var Lists = function Lists() {
       container: true,
       direction: "column",
       justify: "center",
-      alignItems: "center"
+      alignItems: "center",
+      style: {
+        overflowWrap: "anywhere",
+        whiteSpace: "pre-line",
+        textAlign: "center"
+      }
     }, react_1["default"].createElement(Typography_1["default"], {
       variant: "h4",
       style: {
         fontWeight: "bold",
         color: list.complete ? "#fca10d" : undefined
       }
-    }, "" + list.name), list.shop ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Typography_1["default"], {
+    }, "" + helpers_1.ellipsise(list.name, 40)), list.shop ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Typography_1["default"], {
       variant: "subtitle1"
-    }, "List for:\n                                                                                        " + list.shop.name)) : null, react_1["default"].createElement(Typography_1["default"], {
+    }, "List for: " + (isTablet ? helpers_1.ellipsise(list.shop.name, 40) : helpers_1.ellipsise(list.shop.name, 50)))) : null, react_1["default"].createElement(Typography_1["default"], {
       variant: "subtitle1"
     }, "Created: " + moment_1["default"].utc(list.createdAt).format("DD/MM/YYYY")), react_1["default"].createElement(Typography_1["default"], {
       variant: "subtitle1"
-    }, list.notes ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("hr", null), list.notes) : null))))));
+    }, list.notes ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("hr", null), isTablet ? helpers_1.ellipsise(list.notes, 40) : helpers_1.ellipsise(list.notes, 50)) : null))))));
   }) : react_1["default"].createElement(CircularProgress_1["default"], null))))))));
 };
 

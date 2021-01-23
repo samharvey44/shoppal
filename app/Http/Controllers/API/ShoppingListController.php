@@ -13,7 +13,13 @@ use Auth;
 
 class ShoppingListController extends Controller
 {
-    public function index() {
-        return ShoppingListResource::collection(ShoppingList::where('user_id', Auth::id())->get());
+    public function index(Request $request) {
+        $query = Auth::user()->lists()->latest();
+
+        if ($request->query('search') === "false") {
+            $query = $query->whereComplete($request->query('complete') === 'true');
+        }
+
+        return ShoppingListResource::collection($query->get());
     }
 }

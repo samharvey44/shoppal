@@ -26,128 +26,339 @@ const NavBar: React.FC<{ page: any }> = ({ page, children }) => {
         <React.Fragment>
             {page ? (
                 <AppBar position="static">
-                    <Toolbar
-                        style={{
-                            paddingLeft: isPhone
-                                ? "6px"
-                                : isTablet
-                                ? "8px"
-                                : undefined,
-                        }}
-                    >
-                        <Button
-                            onClick={() => {
-                                history.push(`/dashboard`);
-                            }}
-                            startIcon={isPhone ? null : <StorefrontIcon />}
-                            size="large"
-                            variant="contained"
-                            style={{
-                                outline: "none",
-                                backgroundColor:
-                                    page.label === "Dashboard"
-                                        ? "#fca10d"
-                                        : undefined,
-                            }}
-                        >
-                            {isPhone ? <StorefrontIcon /> : "ShopPal"}
-                        </Button>
+                    {isPhone ? (
+                        <React.Fragment>
+                            <Toolbar
+                                style={{
+                                    paddingLeft: "6px",
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        width: "100%",
+                                    }}
+                                >
+                                    <Grid
+                                        container
+                                        justify="center"
+                                        alignItems="center"
+                                    >
+                                        <Button
+                                            onClick={() => {
+                                                history.push(`/lists`);
+                                            }}
+                                            size="large"
+                                            variant="contained"
+                                            style={{
+                                                outline: "none",
+                                                backgroundColor:
+                                                    page.label === "Lists"
+                                                        ? "#fca10d"
+                                                        : undefined,
+                                                marginLeft: "6px",
+                                            }}
+                                        >
+                                            <SubjectIcon />
+                                        </Button>
 
-                        <div
+                                        <Button
+                                            size="large"
+                                            variant="contained"
+                                            style={{
+                                                marginLeft: "8px",
+                                                outline: "none",
+                                                backgroundColor:
+                                                    page.label === "Products"
+                                                        ? "#fca10d"
+                                                        : undefined,
+                                            }}
+                                        >
+                                            <FastfoodIcon />
+                                        </Button>
+
+                                        <Button
+                                            size="large"
+                                            variant="contained"
+                                            style={{
+                                                marginLeft: "6px",
+                                                outline: "none",
+                                                backgroundColor:
+                                                    page.label === "Extras"
+                                                        ? "#fca10d"
+                                                        : undefined,
+                                            }}
+                                        >
+                                            <ExtensionIcon />
+                                        </Button>
+
+                                        <Button
+                                            onClick={() => {
+                                                history.push("/account");
+                                            }}
+                                            size="large"
+                                            variant="contained"
+                                            style={{
+                                                marginLeft: "6px",
+                                                outline: "none",
+                                                backgroundColor:
+                                                    page.label === "Account"
+                                                        ? "#fca10d"
+                                                        : undefined,
+                                            }}
+                                        >
+                                            <AccountBoxIcon />
+                                        </Button>
+                                    </Grid>
+                                </div>
+                            </Toolbar>
+                            <Toolbar>
+                                <Grid
+                                    container
+                                    justify="center"
+                                    alignItems="center"
+                                >
+                                    <Button
+                                        onClick={() => {
+                                            history.push(`/dashboard`);
+                                        }}
+                                        startIcon={<StorefrontIcon />}
+                                        size="large"
+                                        variant="contained"
+                                        style={{
+                                            outline: "none",
+                                            backgroundColor:
+                                                page.label === "Dashboard"
+                                                    ? "#fca10d"
+                                                    : undefined,
+                                        }}
+                                    >
+                                        ShopPal
+                                    </Button>
+
+                                    <Logout />
+                                </Grid>
+                            </Toolbar>
+                        </React.Fragment>
+                    ) : isTablet && !isPhone ? (
+                        <React.Fragment>
+                            <Toolbar
+                                style={{
+                                    paddingLeft: "8px",
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        width: "100%",
+                                    }}
+                                >
+                                    <Button
+                                        onClick={() => {
+                                            history.push(`/lists`);
+                                        }}
+                                        startIcon={<SubjectIcon />}
+                                        size="large"
+                                        variant="contained"
+                                        style={{
+                                            outline: "none",
+                                            backgroundColor:
+                                                page.label === "Lists"
+                                                    ? "#fca10d"
+                                                    : undefined,
+                                            marginLeft: "auto",
+                                        }}
+                                    >
+                                        Lists
+                                    </Button>
+
+                                    <Button
+                                        startIcon={<FastfoodIcon />}
+                                        size="large"
+                                        variant="contained"
+                                        style={{
+                                            marginLeft: "8px",
+                                            outline: "none",
+                                            backgroundColor:
+                                                page.label === "Products"
+                                                    ? "#fca10d"
+                                                    : undefined,
+                                        }}
+                                    >
+                                        Products
+                                    </Button>
+
+                                    <Button
+                                        startIcon={<ExtensionIcon />}
+                                        size="large"
+                                        variant="contained"
+                                        style={{
+                                            marginLeft: "8px",
+                                            outline: "none",
+                                            backgroundColor:
+                                                page.label === "Extras"
+                                                    ? "#fca10d"
+                                                    : undefined,
+                                        }}
+                                    >
+                                        Extras
+                                    </Button>
+
+                                    <Button
+                                        onClick={() => {
+                                            history.push("/account");
+                                        }}
+                                        startIcon={<AccountBoxIcon />}
+                                        size="large"
+                                        variant="contained"
+                                        style={{
+                                            marginLeft: "8px",
+                                            outline: "none",
+                                            backgroundColor:
+                                                page.label === "Account"
+                                                    ? "#fca10d"
+                                                    : undefined,
+                                        }}
+                                    >
+                                        Account
+                                    </Button>
+
+                                    <Logout />
+                                </div>
+                            </Toolbar>
+
+                            <Toolbar>
+                                <Grid
+                                    container
+                                    justify="center"
+                                    alignItems="center"
+                                >
+                                    <Button
+                                        startIcon={<StorefrontIcon />}
+                                        onClick={() => {
+                                            history.push(`/dashboard`);
+                                        }}
+                                        size="large"
+                                        variant="contained"
+                                        style={{
+                                            outline: "none",
+                                            backgroundColor:
+                                                page.label === "Dashboard"
+                                                    ? "#fca10d"
+                                                    : undefined,
+                                        }}
+                                    >
+                                        ShopPal
+                                    </Button>
+
+                                    <Logout />
+                                </Grid>
+                            </Toolbar>
+                        </React.Fragment>
+                    ) : (
+                        <Toolbar
                             style={{
-                                display: "flex",
-                                width: "100%",
+                                paddingLeft: isTablet ? "8px" : undefined,
                             }}
                         >
                             <Button
                                 onClick={() => {
-                                    history.push(`/lists`);
+                                    history.push(`/dashboard`);
                                 }}
-                                startIcon={isPhone ? null : <SubjectIcon />}
+                                startIcon={<StorefrontIcon />}
                                 size="large"
                                 variant="contained"
                                 style={{
                                     outline: "none",
                                     backgroundColor:
-                                        page.label === "Lists"
+                                        page.label === "Dashboard"
                                             ? "#fca10d"
                                             : undefined,
-                                    marginLeft: isPhone ? "6px" : "auto",
                                 }}
                             >
-                                {isPhone ? <SubjectIcon /> : "Lists"}
+                                ShopPal
                             </Button>
 
-                            <Button
-                                startIcon={isPhone ? null : <FastfoodIcon />}
-                                size="large"
-                                variant="contained"
+                            <div
                                 style={{
-                                    marginLeft: "8px",
-                                    outline: "none",
-                                    backgroundColor:
-                                        page.label === "Products"
-                                            ? "#fca10d"
-                                            : undefined,
+                                    display: "flex",
+                                    width: "100%",
                                 }}
                             >
-                                {isPhone ? <FastfoodIcon /> : "Products"}
-                            </Button>
+                                <Button
+                                    onClick={() => {
+                                        history.push(`/lists`);
+                                    }}
+                                    startIcon={<SubjectIcon />}
+                                    size="large"
+                                    variant="contained"
+                                    style={{
+                                        outline: "none",
+                                        backgroundColor:
+                                            page.label === "Lists"
+                                                ? "#fca10d"
+                                                : undefined,
+                                        marginLeft: "auto",
+                                    }}
+                                >
+                                    Lists
+                                </Button>
 
-                            <Button
-                                startIcon={isPhone ? null : <ExtensionIcon />}
-                                size="large"
-                                variant="contained"
-                                style={{
-                                    marginLeft: isPhone ? "6px" : "8px",
-                                    outline: "none",
-                                    backgroundColor:
-                                        page.label === "Extras"
-                                            ? "#fca10d"
-                                            : undefined,
-                                }}
-                            >
-                                {isPhone ? <ExtensionIcon /> : "Extras"}
-                            </Button>
+                                <Button
+                                    startIcon={<FastfoodIcon />}
+                                    size="large"
+                                    variant="contained"
+                                    style={{
+                                        marginLeft: "8px",
+                                        outline: "none",
+                                        backgroundColor:
+                                            page.label === "Products"
+                                                ? "#fca10d"
+                                                : undefined,
+                                    }}
+                                >
+                                    Products
+                                </Button>
 
-                            <Button
-                                onClick={() => {
-                                    history.push("/account");
-                                }}
-                                startIcon={isPhone ? null : <AccountBoxIcon />}
-                                size="large"
-                                variant="contained"
-                                style={{
-                                    marginLeft: isPhone ? "6px" : "8px",
-                                    outline: "none",
-                                    backgroundColor:
-                                        page.label === "Account"
-                                            ? "#fca10d"
-                                            : undefined,
-                                }}
-                            >
-                                {isPhone ? <AccountBoxIcon /> : "Account"}
-                            </Button>
+                                <Button
+                                    startIcon={<ExtensionIcon />}
+                                    size="large"
+                                    variant="contained"
+                                    style={{
+                                        marginLeft: "8px",
+                                        outline: "none",
+                                        backgroundColor:
+                                            page.label === "Extras"
+                                                ? "#fca10d"
+                                                : undefined,
+                                    }}
+                                >
+                                    Extras
+                                </Button>
 
-                            {page.label === "Login" ? null : isPhone ||
-                              isTablet ? null : (
+                                <Button
+                                    onClick={() => {
+                                        history.push("/account");
+                                    }}
+                                    startIcon={<AccountBoxIcon />}
+                                    size="large"
+                                    variant="contained"
+                                    style={{
+                                        marginLeft: "8px",
+                                        outline: "none",
+                                        backgroundColor:
+                                            page.label === "Account"
+                                                ? "#fca10d"
+                                                : undefined,
+                                    }}
+                                >
+                                    Account
+                                </Button>
+
                                 <Logout />
-                            )}
-                        </div>
-                    </Toolbar>
-
-                    {page.label === "Login" ? null : isPhone || isTablet ? (
-                        <Toolbar>
-                            <Grid
-                                container
-                                direction="column"
-                                justify="center"
-                                alignItems="center"
-                            >
-                                <Logout />
-                            </Grid>
+                            </div>
                         </Toolbar>
-                    ) : null}
+                    )}
                 </AppBar>
             ) : (
                 <CircularProgress />

@@ -10,11 +10,11 @@ import FastfoodIcon from "@material-ui/icons/Fastfood";
 import Typography from "@material-ui/core/Typography";
 import SubjectIcon from "@material-ui/icons/Subject";
 import { useTheme } from "@material-ui/core/styles";
-import { Link, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import StoreIcon from "@material-ui/icons/Store";
 import EditIcon from "@material-ui/icons/Edit";
 import Button from "@material-ui/core/Button";
+import { useHistory } from "react-router-dom";
 import Slide from "@material-ui/core/Slide";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -36,10 +36,9 @@ const Account: React.FC = () => {
     const isTablet = useMediaQuery(theme.breakpoints.down("sm"));
 
     const history = useHistory();
+    const goBack = useGoBack();
 
     const user = useRecoilValue(userAtom);
-
-    const goBack = useGoBack();
 
     useEffect(() => {
         api.get("/account")
