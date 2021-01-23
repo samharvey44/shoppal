@@ -1,6 +1,7 @@
 import EditAccount from "./Account/Edit";
 import { IPage } from "./interfaces";
 import Dashboard from "./Dashboard";
+import Products from "./Products";
 import { EPages } from "./enums";
 import Account from "./Account";
 import Login from "./Login";
@@ -46,6 +47,14 @@ const authed: IPage[] = [
         label: "Lists",
         path: "/lists",
         Component: Lists,
+        authed: true,
+    },
+
+    {
+        name: EPages.Products,
+        label: "Products",
+        path: "/products",
+        Component: Products,
         authed: true,
     },
 ];

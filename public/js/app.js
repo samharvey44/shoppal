@@ -19394,6 +19394,9 @@ var NavBar = function NavBar(_a) {
       marginLeft: "auto"
     }
   }, "Lists"), react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/products");
+    },
     startIcon: react_1["default"].createElement(Fastfood_1["default"], null),
     size: "large",
     variant: "contained",
@@ -19471,6 +19474,9 @@ var NavBar = function NavBar(_a) {
       marginLeft: "auto"
     }
   }, "Lists"), react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/products");
+    },
     startIcon: react_1["default"].createElement(Fastfood_1["default"], null),
     size: "large",
     variant: "contained",
@@ -21768,6 +21774,140 @@ exports.default = Login;
 
 /***/ }),
 
+/***/ "./resources/js/pages/Products/index.tsx":
+/*!***********************************************!*\
+  !*** ./resources/js/pages/Products/index.tsx ***!
+  \***********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var KeyboardReturn_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/KeyboardReturn */ "./node_modules/@material-ui/icons/KeyboardReturn.js"));
+
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var useMediaQuery_1 = __importDefault(__webpack_require__(/*! @material-ui/core/useMediaQuery */ "./node_modules/@material-ui/core/esm/useMediaQuery/index.js"));
+
+var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
+
+var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
+
+var Grid_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js"));
+
+var notistack_1 = __webpack_require__(/*! notistack */ "./node_modules/notistack/dist/notistack.esm.js");
+
+var helpers_1 = __webpack_require__(/*! ../../helpers */ "./resources/js/helpers/index.ts");
+
+var Products = function Products() {
+  var _a = react_1.useState([]),
+      lists = _a[0],
+      setLists = _a[1];
+
+  var enqueueSnackbar = notistack_1.useSnackbar().enqueueSnackbar;
+  var theme = styles_1.useTheme();
+  var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  var history = react_router_dom_1.useHistory();
+  var goBack = helpers_1.useGoBack();
+  return react_1["default"].createElement(Slide_1["default"], {
+    direction: "right",
+    "in": true
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    spacing: 4
+  }, react_1["default"].createElement(Grid_1["default"], {
+    item: true,
+    xs: 12
+  }, isTablet ? react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      goBack();
+    },
+    startIcon: react_1["default"].createElement(KeyboardReturn_1["default"], null),
+    size: "small",
+    variant: "contained",
+    style: {
+      outline: "none",
+      marginTop: "3%",
+      backgroundColor: "#fca10d"
+    }
+  }, "Return")) : react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      goBack();
+    },
+    startIcon: react_1["default"].createElement(KeyboardReturn_1["default"], null),
+    size: "small",
+    variant: "contained",
+    style: {
+      outline: "none",
+      marginLeft: "24px",
+      marginTop: "1%",
+      backgroundColor: "#fca10d"
+    }
+  }, "Return")))));
+};
+
+exports.default = Products;
+
+/***/ }),
+
 /***/ "./resources/js/pages/enums.ts":
 /*!*************************************!*\
   !*** ./resources/js/pages/enums.ts ***!
@@ -21789,6 +21929,7 @@ var EPages;
   EPages["Account"] = "account";
   EPages["EditAccount"] = "editAccount";
   EPages["Lists"] = "lists";
+  EPages["Products"] = "products";
 })(EPages = exports.EPages || (exports.EPages = {}));
 
 /***/ }),
@@ -21831,6 +21972,8 @@ var Edit_1 = __importDefault(__webpack_require__(/*! ./Account/Edit */ "./resour
 
 var Dashboard_1 = __importDefault(__webpack_require__(/*! ./Dashboard */ "./resources/js/pages/Dashboard/index.tsx"));
 
+var Products_1 = __importDefault(__webpack_require__(/*! ./Products */ "./resources/js/pages/Products/index.tsx"));
+
 var enums_1 = __webpack_require__(/*! ./enums */ "./resources/js/pages/enums.ts");
 
 var Account_1 = __importDefault(__webpack_require__(/*! ./Account */ "./resources/js/pages/Account/index.tsx"));
@@ -21869,6 +22012,12 @@ var authed = [{
   label: "Lists",
   path: "/lists",
   Component: Lists_1["default"],
+  authed: true
+}, {
+  name: enums_1.EPages.Products,
+  label: "Products",
+  path: "/products",
+  Component: Products_1["default"],
   authed: true
 }];
 exports.pages = __spreadArrays(unauthed, authed);

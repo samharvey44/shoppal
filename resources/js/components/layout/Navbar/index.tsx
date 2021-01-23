@@ -173,6 +173,9 @@ const NavBar: React.FC<{ page: any }> = ({ page, children }) => {
                                     </Button>
 
                                     <Button
+                                        onClick={() => {
+                                            history.push(`/products`);
+                                        }}
                                         startIcon={<FastfoodIcon />}
                                         size="large"
                                         variant="contained"
@@ -305,6 +308,9 @@ const NavBar: React.FC<{ page: any }> = ({ page, children }) => {
                                 </Button>
 
                                 <Button
+                                    onClick={() => {
+                                        history.push(`/products`);
+                                    }}
                                     startIcon={<FastfoodIcon />}
                                     size="large"
                                     variant="contained"
