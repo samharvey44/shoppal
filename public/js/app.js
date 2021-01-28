@@ -21515,9 +21515,9 @@ var Lists = function Lists() {
         fontWeight: "bold",
         color: list.complete ? "#fca10d" : undefined
       }
-    }, "" + helpers_1.ellipsise(list.name, 40)), list.shop ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Typography_1["default"], {
+    }, "" + helpers_1.ellipsise(list.name, 40)), list.shop ? react_1["default"].createElement(Typography_1["default"], {
       variant: "subtitle1"
-    }, "List for: " + (isTablet ? helpers_1.ellipsise(list.shop.name, 40) : helpers_1.ellipsise(list.shop.name, 50)))) : null, react_1["default"].createElement(Typography_1["default"], {
+    }, "List for: " + (isTablet ? helpers_1.ellipsise(list.shop.name, 40) : helpers_1.ellipsise(list.shop.name, 50))) : null, react_1["default"].createElement(Typography_1["default"], {
       variant: "subtitle1"
     }, "Created: " + moment_1["default"].utc(list.createdAt).format("DD/MM/YYYY")), react_1["default"].createElement(Typography_1["default"], {
       variant: "subtitle1"
@@ -21829,17 +21829,27 @@ Object.defineProperty(exports, "__esModule", ({
 
 var KeyboardReturn_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/KeyboardReturn */ "./node_modules/@material-ui/icons/KeyboardReturn.js"));
 
+var CircularProgress_1 = __importDefault(__webpack_require__(/*! @material-ui/core/CircularProgress */ "./node_modules/@material-ui/core/esm/CircularProgress/index.js"));
+
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var CardActionArea_1 = __importDefault(__webpack_require__(/*! @material-ui/core/CardActionArea */ "./node_modules/@material-ui/core/esm/CardActionArea/index.js"));
 
 var useMediaQuery_1 = __importDefault(__webpack_require__(/*! @material-ui/core/useMediaQuery */ "./node_modules/@material-ui/core/esm/useMediaQuery/index.js"));
 
+var CardContent_1 = __importDefault(__webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/index.js"));
+
+var Typography_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js"));
+
 var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
 
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+var TextField_1 = __importDefault(__webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js"));
 
 var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
 
 var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
+
+var Card_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Card */ "./node_modules/@material-ui/core/esm/Card/index.js"));
 
 var Grid_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js"));
 
@@ -21847,16 +21857,57 @@ var notistack_1 = __webpack_require__(/*! notistack */ "./node_modules/notistack
 
 var helpers_1 = __webpack_require__(/*! ../../helpers */ "./resources/js/helpers/index.ts");
 
+var api_1 = __importDefault(__webpack_require__(/*! ../../services/api */ "./resources/js/services/api/index.ts"));
+
 var Products = function Products() {
   var _a = react_1.useState([]),
-      lists = _a[0],
-      setLists = _a[1];
+      products = _a[0],
+      setProducts = _a[1];
 
   var enqueueSnackbar = notistack_1.useSnackbar().enqueueSnackbar;
+
+  var _b = react_1.useState(""),
+      search = _b[0],
+      setSearch = _b[1];
+
   var theme = styles_1.useTheme();
   var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
-  var history = react_router_dom_1.useHistory();
   var goBack = helpers_1.useGoBack();
+  var getProducts = react_1.useCallback(function (s) {
+    if (s === void 0) {
+      s = "";
+    }
+
+    api_1["default"].get("/products", {
+      params: {
+        search: s
+      }
+    }).then(function (_a) {
+      var d = _a.data.data;
+      setProducts(d);
+    })["catch"](function () {
+      enqueueSnackbar("Failed to get products!", {
+        variant: "error"
+      });
+    });
+  }, [enqueueSnackbar]);
+  react_1.useEffect(function () {
+    getProducts();
+  }, [getProducts]);
+
+  var handleFilter = function handleFilter() {
+    getProducts(search);
+  };
+
+  var handleSearchClear = function handleSearchClear() {
+    setSearch("");
+    getProducts();
+  };
+
+  var handleSearch = function handleSearch(e) {
+    setSearch(e.target.value);
+  };
+
   return react_1["default"].createElement(Slide_1["default"], {
     direction: "right",
     "in": true
@@ -21901,7 +21952,97 @@ var Products = function Products() {
       marginTop: "1%",
       backgroundColor: "#fca10d"
     }
-  }, "Return")))));
+  }, "Return"), react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    direction: "column",
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      width: "35%",
+      marginTop: "3%"
+    }
+  }, react_1["default"].createElement(TextField_1["default"], {
+    value: search,
+    onChange: handleSearch,
+    label: "Search product...",
+    style: {
+      flex: "0.95"
+    }
+  }), react_1["default"].createElement(Button_1["default"], {
+    onClick: handleFilter,
+    style: {
+      height: "40px",
+      width: "110px",
+      outline: "none",
+      backgroundColor: "#fca10d"
+    },
+    variant: "contained"
+  }, "Search"), react_1["default"].createElement(Button_1["default"], {
+    onClick: handleSearchClear,
+    style: {
+      height: "40px",
+      width: "110px",
+      outline: "none",
+      backgroundColor: "#fca10d"
+    },
+    variant: "contained"
+  }, "Clear"))), react_1["default"].createElement("div", {
+    style: {
+      marginTop: "3%",
+      marginLeft: isTablet ? "7%" : "10%",
+      marginRight: isTablet ? "7%" : "10%",
+      marginBottom: "5%",
+      padding: isTablet ? "18px" : "25px"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    spacing: 2,
+    style: {
+      alignItems: "stretch"
+    }
+  }, products ? products.map(function (product) {
+    return react_1["default"].createElement(Grid_1["default"], {
+      item: true,
+      xs: 6,
+      md: 3,
+      style: {
+        display: "flex",
+        flexWrap: "wrap"
+      },
+      key: product.id
+    }, react_1["default"].createElement(Card_1["default"], {
+      elevation: 3,
+      style: {
+        padding: "10px",
+        width: "100%"
+      }
+    }, react_1["default"].createElement(CardActionArea_1["default"], {
+      style: {
+        outline: "none"
+      }
+    }, react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+      container: true,
+      direction: "column",
+      justify: "center",
+      alignItems: "center",
+      style: {
+        overflowWrap: "anywhere",
+        whiteSpace: "pre-line",
+        textAlign: "center"
+      }
+    }, react_1["default"].createElement(Typography_1["default"], {
+      variant: "h6"
+    }, helpers_1.ellipsise(product.name, 20), product.shop || product.brand || product.category ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement("hr", null)) : null), product.shop ? react_1["default"].createElement(Typography_1["default"], {
+      variant: "subtitle1"
+    }, "Shop: " + product.shop.name) : null, product.brand ? react_1["default"].createElement(Typography_1["default"], {
+      variant: "subtitle1"
+    }, "Brand: " + product.brand.name) : null, product.category ? react_1["default"].createElement(Typography_1["default"], {
+      variant: "subtitle1"
+    }, "Category: " + product.category.name) : null)))));
+  }) : react_1["default"].createElement(CircularProgress_1["default"], null)))))));
 };
 
 exports.default = Products;

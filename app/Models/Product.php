@@ -21,4 +21,16 @@ class Product extends Model
     public function favourites() {
         return $this->hasMany(Favourite::class, 'product_id');
     }
+
+    public function category() {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function shop() {
+        return $this->belongsTo(Shop::class);
+    }
+
+    public function brand() {
+        return $this->belongsTo(Brand::class);
+    }
 }

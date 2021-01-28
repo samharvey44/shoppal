@@ -17,6 +17,7 @@ class ShoppingListController extends Controller
         $query = Auth::user()->lists()->latest();
 
         if ($request->query('search') === "false") {
+            // This clause returns records which have been marked as completed.
             $query = $query->whereComplete($request->query('complete') === 'true');
         }
 

@@ -218,25 +218,23 @@ const Lists: React.FC = () => {
                                                                         </Typography>
 
                                                                         {list.shop ? (
-                                                                            <React.Fragment>
-                                                                                <Typography variant="subtitle1">
-                                                                                    {`List for: ${
-                                                                                        isTablet
-                                                                                            ? ellipsise(
-                                                                                                  list
-                                                                                                      .shop
-                                                                                                      .name,
-                                                                                                  40
-                                                                                              )
-                                                                                            : ellipsise(
-                                                                                                  list
-                                                                                                      .shop
-                                                                                                      .name,
-                                                                                                  50
-                                                                                              )
-                                                                                    }`}
-                                                                                </Typography>
-                                                                            </React.Fragment>
+                                                                            <Typography variant="subtitle1">
+                                                                                {`List for: ${
+                                                                                    isTablet
+                                                                                        ? ellipsise(
+                                                                                              list
+                                                                                                  .shop
+                                                                                                  .name,
+                                                                                              40
+                                                                                          )
+                                                                                        : ellipsise(
+                                                                                              list
+                                                                                                  .shop
+                                                                                                  .name,
+                                                                                              50
+                                                                                          )
+                                                                                }`}
+                                                                            </Typography>
                                                                         ) : null}
 
                                                                         <Typography variant="subtitle1">

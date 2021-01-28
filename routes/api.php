@@ -7,6 +7,7 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\DashboardController;
 use App\Http\Controllers\API\AccountController;
 use App\Http\Controllers\API\ShoppingListController;
+use App\Http\Controllers\API\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,9 @@ Route::middleware('auth:api')->group(function() {
 
     Route::prefix('/lists')->group(function() {
         Route::get('/', [ShoppingListController::class, 'index']);
+    });
+
+    Route::prefix('/products')->group(function() {
+        Route::get('/', [ProductController::class, 'index']);
     });
 });
