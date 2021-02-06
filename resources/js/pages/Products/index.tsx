@@ -14,6 +14,7 @@ import Grid from "@material-ui/core/Grid";
 import { useSnackbar } from "notistack";
 
 import { useGoBack, ellipsise } from "../../helpers";
+import { IProduct } from "./interfaces";
 import api from "../../services/api";
 
 const Products = () => {
@@ -115,82 +116,111 @@ const Products = () => {
                             </Button>
                         )}
 
-                        <Grid
-                            container
-                            direction="column"
-                            justify="center"
-                            alignItems="center"
-                        >
-                            <div
-                                style={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                    width: "35%",
-                                    marginTop: "3%",
-                                }}
-                            >
-                                <TextField
-                                    value={search}
-                                    onChange={handleSearch}
-                                    label="Search product..."
-                                    style={{ flex: "0.95" }}
-                                />
-                                <Button
-                                    onClick={handleFilter}
-                                    style={{
-                                        height: "40px",
-                                        width: "110px",
-                                        outline: "none",
-                                        backgroundColor: "#fca10d",
-                                    }}
-                                    variant="contained"
-                                >
-                                    Search
-                                </Button>
-                                <Button
-                                    onClick={handleSearchClear}
-                                    style={{
-                                        height: "40px",
-                                        width: "110px",
-                                        outline: "none",
-                                        backgroundColor: "#fca10d",
-                                    }}
-                                    variant="contained"
-                                >
-                                    Clear
-                                </Button>
-                            </div>
-                        </Grid>
-
                         <div
                             style={{
-                                marginTop: "3%",
-                                marginLeft: isTablet ? "7%" : "10%",
-                                marginRight: isTablet ? "7%" : "10%",
                                 marginBottom: "5%",
                                 padding: isTablet ? "18px" : "25px",
                             }}
                         >
                             <Grid
                                 container
-                                spacing={2}
-                                style={{ alignItems: "stretch" }}
+                                direction="column"
+                                justify="center"
+                                alignItems="center"
                             >
-                                {products ? (
-                                    products.map(
-                                        (product: {
-                                            id: number;
-                                            name: string;
-                                            price: number;
-                                            category: any;
-                                            shop: any;
-                                            brand: any;
-                                        }) => {
+                                <div>
+                                    <Button
+                                        variant="contained"
+                                        style={{
+                                            backgroundColor: "#fca10d",
+                                            outline: "none",
+                                        }}
+                                        size="large"
+                                    >
+                                        Create A Product
+                                    </Button>
+                                </div>
+
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                        width: isTablet ? "80%" : "40%",
+                                        marginTop: "3%",
+                                    }}
+                                >
+                                    <TextField
+                                        value={search}
+                                        onChange={handleSearch}
+                                        label="Search product..."
+                                        style={{ flex: "1" }}
+                                    />
+                                </div>
+
+                                <div
+                                    style={{
+                                        display: "flex",
+                                        width: "70%",
+                                        marginTop: isTablet ? "3%" : "1%",
+                                    }}
+                                >
+                                    <Grid
+                                        container
+                                        justify="center"
+                                        alignItems="center"
+                                    >
+                                        <Button
+                                            onClick={handleFilter}
+                                            style={{
+                                                height: "40px",
+                                                width: "110px",
+                                                outline: "none",
+                                                backgroundColor: "#fca10d",
+                                                marginRight: "1%",
+                                            }}
+                                            variant="contained"
+                                        >
+                                            Search
+                                        </Button>
+                                        <Button
+                                            onClick={handleSearchClear}
+                                            style={{
+                                                height: "40px",
+                                                width: "110px",
+                                                outline: "none",
+                                                backgroundColor: "#fca10d",
+                                                marginLeft: "1%",
+                                            }}
+                                            variant="contained"
+                                        >
+                                            Clear
+                                        </Button>
+                                    </Grid>
+                                </div>
+                            </Grid>
+
+                            <div
+                                style={{
+                                    marginTop: "3%",
+                                    marginLeft: isTablet ? "7%" : "10%",
+                                    marginRight: isTablet ? "7%" : "10%",
+                                    marginBottom: "5%",
+                                    padding: isTablet ? "18px" : "25px",
+                                }}
+                            >
+                                <Grid
+                                    container
+                                    spacing={2}
+                                    style={{ alignItems: "stretch" }}
+                                >
+                                    {products ? (
+                                        products.map((product: IProduct) => {
                                             return (
                                                 <Grid
                                                     item
-                                                    xs={6}
-                                                    md={3}
+                                                    xs={12}
+                                                    md={6}
+                                                    lg={3}
                                                     style={{
                                                         display: "flex",
                                                         flexWrap: "wrap",
@@ -261,12 +291,12 @@ const Products = () => {
                                                     </Card>
                                                 </Grid>
                                             );
-                                        }
-                                    )
-                                ) : (
-                                    <CircularProgress />
-                                )}
-                            </Grid>
+                                        })
+                                    ) : (
+                                        <CircularProgress />
+                                    )}
+                                </Grid>
+                            </div>
                         </div>
                     </Grid>
                 </Grid>

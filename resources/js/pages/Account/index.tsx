@@ -34,6 +34,7 @@ const Account: React.FC = () => {
 
     const theme = useTheme();
     const isTablet = useMediaQuery(theme.breakpoints.down("sm"));
+    const isPhone = useMediaQuery(theme.breakpoints.down("xs"));
 
     const history = useHistory();
     const goBack = useGoBack();
@@ -169,7 +170,9 @@ const Account: React.FC = () => {
                                                 variant="outlined"
                                                 style={{
                                                     padding: "10px",
-                                                    width: "300px",
+                                                    width: isPhone
+                                                        ? "250px"
+                                                        : "300px",
                                                 }}
                                             >
                                                 <CardActionArea
@@ -192,7 +195,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -224,7 +232,9 @@ const Account: React.FC = () => {
                                                 variant="outlined"
                                                 style={{
                                                     padding: "10px",
-                                                    width: "300px",
+                                                    width: isPhone
+                                                        ? "250px"
+                                                        : "300px",
                                                 }}
                                             >
                                                 <CardActionArea
@@ -244,7 +254,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -276,7 +291,9 @@ const Account: React.FC = () => {
                                                 variant="outlined"
                                                 style={{
                                                     padding: "10px",
-                                                    width: "300px",
+                                                    width: isPhone
+                                                        ? "250px"
+                                                        : "300px",
                                                 }}
                                             >
                                                 <CardActionArea
@@ -296,7 +313,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -336,7 +358,9 @@ const Account: React.FC = () => {
                                                 variant="outlined"
                                                 style={{
                                                     padding: "10px",
-                                                    width: "300px",
+                                                    width: isPhone
+                                                        ? "250px"
+                                                        : "300px",
                                                 }}
                                             >
                                                 <CardActionArea
@@ -356,7 +380,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -388,7 +417,9 @@ const Account: React.FC = () => {
                                                 variant="outlined"
                                                 style={{
                                                     padding: "10px",
-                                                    width: "300px",
+                                                    width: isPhone
+                                                        ? "250px"
+                                                        : "300px",
                                                 }}
                                             >
                                                 <CardActionArea
@@ -408,7 +439,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -440,7 +476,9 @@ const Account: React.FC = () => {
                                                 variant="outlined"
                                                 style={{
                                                     padding: "10px",
-                                                    width: "300px",
+                                                    width: isPhone
+                                                        ? "250px"
+                                                        : "300px",
                                                 }}
                                             >
                                                 <CardActionArea
@@ -460,7 +498,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -522,7 +565,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -570,7 +618,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -618,7 +671,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -678,7 +736,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -726,7 +789,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"
@@ -774,7 +842,12 @@ const Account: React.FC = () => {
                                                                 width: "50px",
                                                             }}
                                                         />
-                                                        <CardContent>
+                                                        <CardContent
+                                                            style={{
+                                                                textAlign:
+                                                                    "center",
+                                                            }}
+                                                        >
                                                             <Grid
                                                                 container
                                                                 direction="column"

@@ -19331,6 +19331,9 @@ var NavBar = function NavBar(_a) {
       marginLeft: "6px"
     }
   }, react_1["default"].createElement(Subject_1["default"], null)), react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/products");
+    },
     size: "large",
     variant: "contained",
     style: {
@@ -20437,6 +20440,7 @@ var Account = function Account() {
   var enqueueSnackbar = notistack_1.useSnackbar().enqueueSnackbar;
   var theme = styles_1.useTheme();
   var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  var isPhone = useMediaQuery_1["default"](theme.breakpoints.down("xs"));
   var history = react_router_dom_1.useHistory();
   var goBack = helpers_1.useGoBack();
   var user = recoil_1.useRecoilValue(user_1["default"]);
@@ -20533,7 +20537,7 @@ var Account = function Account() {
     variant: "outlined",
     style: {
       padding: "10px",
-      width: "300px"
+      width: isPhone ? "250px" : "300px"
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
@@ -20552,7 +20556,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20565,7 +20573,7 @@ var Account = function Account() {
     variant: "outlined",
     style: {
       padding: "10px",
-      width: "300px"
+      width: isPhone ? "250px" : "300px"
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
@@ -20581,7 +20589,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20594,7 +20606,7 @@ var Account = function Account() {
     variant: "outlined",
     style: {
       padding: "10px",
-      width: "300px"
+      width: isPhone ? "250px" : "300px"
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
@@ -20610,7 +20622,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20630,7 +20646,7 @@ var Account = function Account() {
     variant: "outlined",
     style: {
       padding: "10px",
-      width: "300px"
+      width: isPhone ? "250px" : "300px"
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
@@ -20646,7 +20662,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20659,7 +20679,7 @@ var Account = function Account() {
     variant: "outlined",
     style: {
       padding: "10px",
-      width: "300px"
+      width: isPhone ? "250px" : "300px"
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
@@ -20675,7 +20695,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20688,7 +20712,7 @@ var Account = function Account() {
     variant: "outlined",
     style: {
       padding: "10px",
-      width: "300px"
+      width: isPhone ? "250px" : "300px"
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
@@ -20704,7 +20728,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20743,7 +20771,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20772,7 +20804,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20801,7 +20837,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20837,7 +20877,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20866,7 +20910,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -20895,7 +20943,11 @@ var Account = function Account() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -21012,6 +21064,7 @@ var Dashboard = function Dashboard() {
   var enqueueSnackbar = notistack_1.useSnackbar().enqueueSnackbar;
   var theme = styles_1.useTheme();
   var isTablet = useMediaQuery_1["default"](theme.breakpoints.down("sm"));
+  var isPhone = useMediaQuery_1["default"](theme.breakpoints.down("xs"));
   var history = react_router_dom_1.useHistory();
   var user = recoil_1.useRecoilValue(user_1["default"]);
   react_1.useEffect(function () {
@@ -21063,7 +21116,7 @@ var Dashboard = function Dashboard() {
     variant: "outlined",
     style: {
       padding: "10px",
-      width: "300px"
+      width: isPhone ? "250px" : "300px"
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
@@ -21082,7 +21135,11 @@ var Dashboard = function Dashboard() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -21095,7 +21152,7 @@ var Dashboard = function Dashboard() {
     variant: "outlined",
     style: {
       padding: "10px",
-      width: "300px"
+      width: isPhone ? "250px" : "300px"
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
@@ -21111,7 +21168,11 @@ var Dashboard = function Dashboard() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -21124,7 +21185,7 @@ var Dashboard = function Dashboard() {
     variant: "outlined",
     style: {
       padding: "10px",
-      width: "300px"
+      width: isPhone ? "250px" : "300px"
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
@@ -21140,7 +21201,11 @@ var Dashboard = function Dashboard() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -21179,7 +21244,11 @@ var Dashboard = function Dashboard() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -21208,7 +21277,11 @@ var Dashboard = function Dashboard() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -21237,7 +21310,11 @@ var Dashboard = function Dashboard() {
       height: "50px",
       width: "50px"
     }
-  }), react_1["default"].createElement(CardContent_1["default"], null, react_1["default"].createElement(Grid_1["default"], {
+  }), react_1["default"].createElement(CardContent_1["default"], {
+    style: {
+      textAlign: "center"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
@@ -21440,7 +21517,6 @@ var Lists = function Lists() {
     }
   }, "Return"), react_1["default"].createElement("div", {
     style: {
-      marginTop: "3%",
       marginLeft: isTablet ? "7%" : "10%",
       marginRight: isTablet ? "7%" : "10%",
       marginBottom: "5%",
@@ -21952,16 +22028,28 @@ var Products = function Products() {
       marginTop: "1%",
       backgroundColor: "#fca10d"
     }
-  }, "Return"), react_1["default"].createElement(Grid_1["default"], {
+  }, "Return"), react_1["default"].createElement("div", {
+    style: {
+      marginBottom: "5%",
+      padding: isTablet ? "18px" : "25px"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
     direction: "column",
     justify: "center",
     alignItems: "center"
-  }, react_1["default"].createElement("div", {
+  }, react_1["default"].createElement("div", null, react_1["default"].createElement(Button_1["default"], {
+    variant: "contained",
+    style: {
+      backgroundColor: "#fca10d",
+      outline: "none"
+    },
+    size: "large"
+  }, "Create A Product")), react_1["default"].createElement("div", {
     style: {
       display: "flex",
       justifyContent: "space-between",
-      width: "35%",
+      width: isTablet ? "80%" : "40%",
       marginTop: "3%"
     }
   }, react_1["default"].createElement(TextField_1["default"], {
@@ -21969,15 +22057,26 @@ var Products = function Products() {
     onChange: handleSearch,
     label: "Search product...",
     style: {
-      flex: "0.95"
+      flex: "1"
     }
-  }), react_1["default"].createElement(Button_1["default"], {
+  })), react_1["default"].createElement("div", {
+    style: {
+      display: "flex",
+      width: "70%",
+      marginTop: isTablet ? "3%" : "1%"
+    }
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Button_1["default"], {
     onClick: handleFilter,
     style: {
       height: "40px",
       width: "110px",
       outline: "none",
-      backgroundColor: "#fca10d"
+      backgroundColor: "#fca10d",
+      marginRight: "1%"
     },
     variant: "contained"
   }, "Search"), react_1["default"].createElement(Button_1["default"], {
@@ -21986,10 +22085,11 @@ var Products = function Products() {
       height: "40px",
       width: "110px",
       outline: "none",
-      backgroundColor: "#fca10d"
+      backgroundColor: "#fca10d",
+      marginLeft: "1%"
     },
     variant: "contained"
-  }, "Clear"))), react_1["default"].createElement("div", {
+  }, "Clear")))), react_1["default"].createElement("div", {
     style: {
       marginTop: "3%",
       marginLeft: isTablet ? "7%" : "10%",
@@ -22006,8 +22106,9 @@ var Products = function Products() {
   }, products ? products.map(function (product) {
     return react_1["default"].createElement(Grid_1["default"], {
       item: true,
-      xs: 6,
-      md: 3,
+      xs: 12,
+      md: 6,
+      lg: 3,
       style: {
         display: "flex",
         flexWrap: "wrap"
@@ -22042,7 +22143,7 @@ var Products = function Products() {
     }, "Brand: " + product.brand.name) : null, product.category ? react_1["default"].createElement(Typography_1["default"], {
       variant: "subtitle1"
     }, "Category: " + product.category.name) : null)))));
-  }) : react_1["default"].createElement(CircularProgress_1["default"], null)))))));
+  }) : react_1["default"].createElement(CircularProgress_1["default"], null))))))));
 };
 
 exports.default = Products;

@@ -63,6 +63,9 @@ const NavBar: React.FC<{ page: any }> = ({ page, children }) => {
                                         </Button>
 
                                         <Button
+                                            onClick={() => {
+                                                history.push(`/products`);
+                                            }}
                                             size="large"
                                             variant="contained"
                                             style={{

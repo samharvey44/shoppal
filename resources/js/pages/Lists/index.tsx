@@ -16,6 +16,7 @@ import { useSnackbar } from "notistack";
 import moment from "moment";
 
 import { useGoBack, ellipsise } from "../../helpers";
+import { IList } from "./interfaces";
 import api from "../../services/api";
 
 const Lists: React.FC = () => {
@@ -105,7 +106,6 @@ const Lists: React.FC = () => {
 
                         <div
                             style={{
-                                marginTop: "3%",
                                 marginLeft: isTablet ? "7%" : "10%",
                                 marginRight: isTablet ? "7%" : "10%",
                                 marginBottom: "5%",
@@ -153,124 +153,114 @@ const Lists: React.FC = () => {
                                     style={{ alignItems: "stretch" }}
                                 >
                                     {lists ? (
-                                        lists.map(
-                                            (list: {
-                                                id: number;
-                                                name: string;
-                                                notes: string;
-                                                complete: boolean;
-                                                shop: any;
-                                                createdAt: Date;
-                                            }) => {
-                                                return (
-                                                    <Grid
-                                                        item
-                                                        xs={12}
-                                                        md={4}
+                                        lists.map((list: IList) => {
+                                            return (
+                                                <Grid
+                                                    item
+                                                    xs={12}
+                                                    md={4}
+                                                    style={{
+                                                        display: "flex",
+                                                        flexWrap: "wrap",
+                                                    }}
+                                                    key={list.id}
+                                                >
+                                                    <Card
+                                                        elevation={3}
                                                         style={{
-                                                            display: "flex",
-                                                            flexWrap: "wrap",
+                                                            padding: "10px",
+                                                            width: "100%",
                                                         }}
-                                                        key={list.id}
                                                     >
-                                                        <Card
-                                                            elevation={3}
+                                                        <CardActionArea
                                                             style={{
-                                                                padding: "10px",
-                                                                width: "100%",
+                                                                outline: "none",
                                                             }}
                                                         >
-                                                            <CardActionArea
-                                                                style={{
-                                                                    outline:
-                                                                        "none",
-                                                                }}
-                                                            >
-                                                                <CardContent>
-                                                                    <Grid
-                                                                        container
-                                                                        direction="column"
-                                                                        justify="center"
-                                                                        alignItems="center"
+                                                            <CardContent>
+                                                                <Grid
+                                                                    container
+                                                                    direction="column"
+                                                                    justify="center"
+                                                                    alignItems="center"
+                                                                    style={{
+                                                                        overflowWrap:
+                                                                            "anywhere",
+                                                                        whiteSpace:
+                                                                            "pre-line",
+                                                                        textAlign:
+                                                                            "center",
+                                                                    }}
+                                                                >
+                                                                    <Typography
+                                                                        variant="h4"
                                                                         style={{
-                                                                            overflowWrap:
-                                                                                "anywhere",
-                                                                            whiteSpace:
-                                                                                "pre-line",
-                                                                            textAlign:
-                                                                                "center",
+                                                                            fontWeight:
+                                                                                "bold",
+                                                                            color: list.complete
+                                                                                ? "#fca10d"
+                                                                                : undefined,
                                                                         }}
                                                                     >
-                                                                        <Typography
-                                                                            variant="h4"
-                                                                            style={{
-                                                                                fontWeight:
-                                                                                    "bold",
-                                                                                color: list.complete
-                                                                                    ? "#fca10d"
-                                                                                    : undefined,
-                                                                            }}
-                                                                        >
-                                                                            {`${ellipsise(
-                                                                                list.name,
-                                                                                40
+                                                                        {`${ellipsise(
+                                                                            list.name,
+                                                                            40
+                                                                        )}`}
+                                                                    </Typography>
+
+                                                                    {list.shop ? (
+                                                                        <Typography variant="subtitle1">
+                                                                            {`List for: ${
+                                                                                isTablet
+                                                                                    ? ellipsise(
+                                                                                          list
+                                                                                              .shop
+                                                                                              .name,
+                                                                                          40
+                                                                                      )
+                                                                                    : ellipsise(
+                                                                                          list
+                                                                                              .shop
+                                                                                              .name,
+                                                                                          50
+                                                                                      )
+                                                                            }`}
+                                                                        </Typography>
+                                                                    ) : null}
+
+                                                                    <Typography variant="subtitle1">
+                                                                        {`Created: ${moment
+                                                                            .utc(
+                                                                                list.createdAt
+                                                                            )
+                                                                            .format(
+                                                                                "DD/MM/YYYY"
                                                                             )}`}
-                                                                        </Typography>
+                                                                    </Typography>
 
-                                                                        {list.shop ? (
-                                                                            <Typography variant="subtitle1">
-                                                                                {`List for: ${
-                                                                                    isTablet
-                                                                                        ? ellipsise(
-                                                                                              list
-                                                                                                  .shop
-                                                                                                  .name,
-                                                                                              40
-                                                                                          )
-                                                                                        : ellipsise(
-                                                                                              list
-                                                                                                  .shop
-                                                                                                  .name,
-                                                                                              50
-                                                                                          )
-                                                                                }`}
-                                                                            </Typography>
+                                                                    <Typography variant="subtitle1">
+                                                                        {list.notes ? (
+                                                                            <React.Fragment>
+                                                                                <hr />
+                                                                                {isTablet
+                                                                                    ? ellipsise(
+                                                                                          list.notes,
+                                                                                          40
+                                                                                      )
+                                                                                    : ellipsise(
+                                                                                          list.notes,
+                                                                                          50
+                                                                                      )}
+                                                                            </React.Fragment>
                                                                         ) : null}
-
-                                                                        <Typography variant="subtitle1">
-                                                                            {`Created: ${moment
-                                                                                .utc(
-                                                                                    list.createdAt
-                                                                                )
-                                                                                .format(
-                                                                                    "DD/MM/YYYY"
-                                                                                )}`}
-                                                                        </Typography>
-
-                                                                        <Typography variant="subtitle1">
-                                                                            {list.notes ? (
-                                                                                <React.Fragment>
-                                                                                    <hr />
-                                                                                    {isTablet
-                                                                                        ? ellipsise(
-                                                                                              list.notes,
-                                                                                              40
-                                                                                          )
-                                                                                        : ellipsise(
-                                                                                              list.notes,
-                                                                                              50
-                                                                                          )}
-                                                                                </React.Fragment>
-                                                                            ) : null}
-                                                                        </Typography>
-                                                                    </Grid>
-                                                                </CardContent>
-                                                            </CardActionArea>
-                                                        </Card>
-                                                    </Grid>
-                                                );
-                                            }
-                                        )
+                                                                    </Typography>
+                                                                </Grid>
+                                                            </CardContent>
+                                                        </CardActionArea>
+                                                    </Card>
+                                                </Grid>
+                                            );
+                                        })
                                     ) : (
                                         <CircularProgress />
                                     )}
