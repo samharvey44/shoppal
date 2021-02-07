@@ -1,6 +1,7 @@
 import KeyboardReturnIcon from "@material-ui/icons/KeyboardReturn";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import React, { useEffect, useState, useCallback } from "react";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import CardContent from "@material-ui/core/CardContent";
@@ -9,6 +10,7 @@ import { useTheme } from "@material-ui/core/styles";
 import Checkbox from "@material-ui/core/Checkbox";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import AddIcon from "@material-ui/icons/Add";
 import Slide from "@material-ui/core/Slide";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
@@ -118,16 +120,74 @@ const Lists: React.FC = () => {
                                 justify="center"
                                 alignItems="center"
                             >
-                                <Button
-                                    size="large"
-                                    variant="contained"
-                                    style={{
-                                        outline: "none",
-                                        backgroundColor: "#fca10d",
-                                    }}
-                                >
-                                    Create a List
-                                </Button>
+                                {isTablet ? (
+                                    <React.Fragment>
+                                        <Button
+                                            size="large"
+                                            variant="contained"
+                                            style={{
+                                                outline: "none",
+                                                backgroundColor: "#fca10d",
+                                            }}
+                                            startIcon={<ShoppingCartIcon />}
+                                        >
+                                            Shopping Runs
+                                        </Button>
+
+                                        <Button
+                                            size="large"
+                                            variant="contained"
+                                            style={{
+                                                outline: "none",
+                                                backgroundColor: "#fca10d",
+                                                marginTop: "3%",
+                                            }}
+                                            startIcon={<AddIcon />}
+                                        >
+                                            Create a List
+                                        </Button>
+                                    </React.Fragment>
+                                ) : (
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            width: "100%",
+                                        }}
+                                    >
+                                        <Grid
+                                            container
+                                            justify="center"
+                                            alignItems="center"
+                                        >
+                                            <Button
+                                                size="large"
+                                                variant="contained"
+                                                style={{
+                                                    outline: "none",
+                                                    backgroundColor: "#fca10d",
+                                                    marginRight: "1%",
+                                                }}
+                                                startIcon={<ShoppingCartIcon />}
+                                            >
+                                                Shopping Runs
+                                            </Button>
+
+                                            <Button
+                                                size="large"
+                                                variant="contained"
+                                                style={{
+                                                    outline: "none",
+                                                    backgroundColor: "#fca10d",
+                                                    marginLeft: "1%",
+                                                }}
+                                                startIcon={<AddIcon />}
+                                            >
+                                                Create a List
+                                            </Button>
+                                        </Grid>
+                                    </div>
+                                )}
+
                                 <hr />
 
                                 <div style={{ display: "flex" }}>

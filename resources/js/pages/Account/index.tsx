@@ -180,7 +180,7 @@ const Account: React.FC = () => {
                                                         outline: "none",
                                                     }}
                                                     onClick={() => {
-                                                        history.push("lists");
+                                                        history.push("/lists");
                                                     }}
                                                 >
                                                     <Grid
@@ -240,6 +240,11 @@ const Account: React.FC = () => {
                                                 <CardActionArea
                                                     style={{
                                                         outline: "none",
+                                                    }}
+                                                    onClick={() => {
+                                                        history.push(
+                                                            "/products"
+                                                        );
                                                     }}
                                                 >
                                                     <Grid
@@ -550,7 +555,7 @@ const Account: React.FC = () => {
                                                         outline: "none",
                                                     }}
                                                     onClick={() => {
-                                                        history.push("lists");
+                                                        history.push("/lists");
                                                     }}
                                                 >
                                                     <Grid
@@ -604,6 +609,11 @@ const Account: React.FC = () => {
                                                 <CardActionArea
                                                     style={{
                                                         outline: "none",
+                                                    }}
+                                                    onClick={() => {
+                                                        history.push(
+                                                            "/products"
+                                                        );
                                                     }}
                                                 >
                                                     <Grid

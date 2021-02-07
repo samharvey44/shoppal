@@ -3,11 +3,14 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import React, { useState, useCallback, useEffect } from "react";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import FindInPageIcon from "@material-ui/icons/FindInPage";
 import CardContent from "@material-ui/core/CardContent";
+import ClearAllIcon from "@material-ui/icons/ClearAll";
 import Typography from "@material-ui/core/Typography";
 import { useTheme } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import AddIcon from "@material-ui/icons/Add";
 import Slide from "@material-ui/core/Slide";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
@@ -136,6 +139,7 @@ const Products = () => {
                                             outline: "none",
                                         }}
                                         size="large"
+                                        startIcon={<AddIcon />}
                                     >
                                         Create A Product
                                     </Button>
@@ -179,6 +183,7 @@ const Products = () => {
                                                 marginRight: "1%",
                                             }}
                                             variant="contained"
+                                            startIcon={<FindInPageIcon />}
                                         >
                                             Search
                                         </Button>
@@ -192,6 +197,7 @@ const Products = () => {
                                                 marginLeft: "1%",
                                             }}
                                             variant="contained"
+                                            startIcon={<ClearAllIcon />}
                                         >
                                             Clear
                                         </Button>

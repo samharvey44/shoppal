@@ -16501,6 +16501,36 @@ exports.default = _default;
 
 /***/ }),
 
+/***/ "./node_modules/@material-ui/icons/Add.js":
+/*!************************************************!*\
+  !*** ./node_modules/@material-ui/icons/Add.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+}), 'Add');
+
+exports.default = _default;
+
+/***/ }),
+
 /***/ "./node_modules/@material-ui/icons/BrandingWatermark.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@material-ui/icons/BrandingWatermark.js ***!
@@ -16562,6 +16592,36 @@ var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement(Rea
 }), /*#__PURE__*/React.createElement("path", {
   d: "M3 13.5h8v8H3z"
 })), 'Category');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/ClearAll.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/@material-ui/icons/ClearAll.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M5 13h14v-2H5v2zm-2 4h14v-2H3v2zM7 7v2h14V7H7z"
+}), 'ClearAll');
 
 exports.default = _default;
 
@@ -16652,6 +16712,36 @@ var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/crea
 var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
   d: "M18.06 22.99h1.66c.84 0 1.53-.64 1.63-1.46L23 5.05h-5V1h-1.97v4.05h-4.97l.3 2.34c1.71.47 3.31 1.32 4.27 2.26 1.44 1.42 2.43 2.89 2.43 5.29v8.05zM1 21.99V21h15.03v.99c0 .55-.45 1-1.01 1H2.01c-.56 0-1.01-.45-1.01-1zm15.03-7c0-8-15.03-8-15.03 0h15.03zM1.02 17h15v2h-15z"
 }), 'Fastfood');
+
+exports.default = _default;
+
+/***/ }),
+
+/***/ "./node_modules/@material-ui/icons/FindInPage.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/@material-ui/icons/FindInPage.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js");
+
+var _interopRequireWildcard = __webpack_require__(/*! @babel/runtime/helpers/interopRequireWildcard */ "./node_modules/@babel/runtime/helpers/interopRequireWildcard.js");
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.default = void 0;
+
+var React = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ "./node_modules/@material-ui/icons/utils/createSvgIcon.js"));
+
+var _default = (0, _createSvgIcon.default)( /*#__PURE__*/React.createElement("path", {
+  d: "M20 19.59V8l-6-6H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c.45 0 .85-.15 1.19-.4l-4.43-4.43c-.8.52-1.74.83-2.76.83-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5c0 1.02-.31 1.96-.83 2.75L20 19.59zM9 13c0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3-3 1.34-3 3z"
+}), 'FindInPage');
 
 exports.default = _default;
 
@@ -19342,6 +19432,9 @@ var NavBar = function NavBar(_a) {
       backgroundColor: page.label === "Products" ? "#fca10d" : undefined
     }
   }, react_1["default"].createElement(Fastfood_1["default"], null)), react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/extras");
+    },
     size: "large",
     variant: "contained",
     style: {
@@ -19409,6 +19502,9 @@ var NavBar = function NavBar(_a) {
       backgroundColor: page.label === "Products" ? "#fca10d" : undefined
     }
   }, "Products"), react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/extras");
+    },
     startIcon: react_1["default"].createElement(Extension_1["default"], null),
     size: "large",
     variant: "contained",
@@ -19489,6 +19585,9 @@ var NavBar = function NavBar(_a) {
       backgroundColor: page.label === "Products" ? "#fca10d" : undefined
     }
   }, "Products"), react_1["default"].createElement(Button_1["default"], {
+    onClick: function onClick() {
+      history.push("/extras");
+    },
     startIcon: react_1["default"].createElement(Extension_1["default"], null),
     size: "large",
     variant: "contained",
@@ -20544,7 +20643,7 @@ var Account = function Account() {
       outline: "none"
     },
     onClick: function onClick() {
-      history.push("lists");
+      history.push("/lists");
     }
   }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
@@ -20578,6 +20677,9 @@ var Account = function Account() {
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
       outline: "none"
+    },
+    onClick: function onClick() {
+      history.push("/products");
     }
   }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
@@ -20759,7 +20861,7 @@ var Account = function Account() {
       outline: "none"
     },
     onClick: function onClick() {
-      history.push("lists");
+      history.push("/lists");
     }
   }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
@@ -20793,6 +20895,9 @@ var Account = function Account() {
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
       outline: "none"
+    },
+    onClick: function onClick() {
+      history.push("/products");
     }
   }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
@@ -21157,6 +21262,9 @@ var Dashboard = function Dashboard() {
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
       outline: "none"
+    },
+    onClick: function onClick() {
+      history.push("/products");
     }
   }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
@@ -21228,8 +21336,7 @@ var Dashboard = function Dashboard() {
     }
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
-      outline: "none",
-      textDecoration: "none"
+      outline: "none"
     },
     onClick: function onClick() {
       history.push("/lists");
@@ -21266,6 +21373,9 @@ var Dashboard = function Dashboard() {
   }, react_1["default"].createElement(CardActionArea_1["default"], {
     style: {
       outline: "none"
+    },
+    onClick: function onClick() {
+      history.push("/products");
     }
   }, react_1["default"].createElement(Grid_1["default"], {
     container: true,
@@ -21346,6 +21456,35 @@ exports.default = Dashboard;
 
 /***/ }),
 
+/***/ "./resources/js/pages/Extras/index.tsx":
+/*!*********************************************!*\
+  !*** ./resources/js/pages/Extras/index.tsx ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var Extras = function Extras() {
+  return react_1["default"].createElement("p", null, "Extras");
+};
+
+exports.default = Extras;
+
+/***/ }),
+
 /***/ "./resources/js/pages/Lists/index.tsx":
 /*!********************************************!*\
   !*** ./resources/js/pages/Lists/index.tsx ***!
@@ -21405,6 +21544,8 @@ var CircularProgress_1 = __importDefault(__webpack_require__(/*! @material-ui/co
 
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 
+var ShoppingCart_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/ShoppingCart */ "./node_modules/@material-ui/icons/ShoppingCart.js"));
+
 var CardActionArea_1 = __importDefault(__webpack_require__(/*! @material-ui/core/CardActionArea */ "./node_modules/@material-ui/core/esm/CardActionArea/index.js"));
 
 var useMediaQuery_1 = __importDefault(__webpack_require__(/*! @material-ui/core/useMediaQuery */ "./node_modules/@material-ui/core/esm/useMediaQuery/index.js"));
@@ -21420,6 +21561,8 @@ var Checkbox_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Check
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
 var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
+
+var Add_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Add */ "./node_modules/@material-ui/icons/Add.js"));
 
 var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
 
@@ -21527,14 +21670,51 @@ var Lists = function Lists() {
     direction: "column",
     justify: "center",
     alignItems: "center"
-  }, react_1["default"].createElement(Button_1["default"], {
+  }, isTablet ? react_1["default"].createElement(react_1["default"].Fragment, null, react_1["default"].createElement(Button_1["default"], {
     size: "large",
     variant: "contained",
     style: {
       outline: "none",
       backgroundColor: "#fca10d"
+    },
+    startIcon: react_1["default"].createElement(ShoppingCart_1["default"], null)
+  }, "Shopping Runs"), react_1["default"].createElement(Button_1["default"], {
+    size: "large",
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: "#fca10d",
+      marginTop: "3%"
+    },
+    startIcon: react_1["default"].createElement(Add_1["default"], null)
+  }, "Create a List")) : react_1["default"].createElement("div", {
+    style: {
+      display: "flex",
+      width: "100%"
     }
-  }, "Create a List"), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
+  }, react_1["default"].createElement(Grid_1["default"], {
+    container: true,
+    justify: "center",
+    alignItems: "center"
+  }, react_1["default"].createElement(Button_1["default"], {
+    size: "large",
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: "#fca10d",
+      marginRight: "1%"
+    },
+    startIcon: react_1["default"].createElement(ShoppingCart_1["default"], null)
+  }, "Shopping Runs"), react_1["default"].createElement(Button_1["default"], {
+    size: "large",
+    variant: "contained",
+    style: {
+      outline: "none",
+      backgroundColor: "#fca10d",
+      marginLeft: "1%"
+    },
+    startIcon: react_1["default"].createElement(Add_1["default"], null)
+  }, "Create a List"))), react_1["default"].createElement("hr", null), react_1["default"].createElement("div", {
     style: {
       display: "flex"
     }
@@ -21913,7 +22093,11 @@ var CardActionArea_1 = __importDefault(__webpack_require__(/*! @material-ui/core
 
 var useMediaQuery_1 = __importDefault(__webpack_require__(/*! @material-ui/core/useMediaQuery */ "./node_modules/@material-ui/core/esm/useMediaQuery/index.js"));
 
+var FindInPage_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/FindInPage */ "./node_modules/@material-ui/icons/FindInPage.js"));
+
 var CardContent_1 = __importDefault(__webpack_require__(/*! @material-ui/core/CardContent */ "./node_modules/@material-ui/core/esm/CardContent/index.js"));
+
+var ClearAll_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/ClearAll */ "./node_modules/@material-ui/icons/ClearAll.js"));
 
 var Typography_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Typography */ "./node_modules/@material-ui/core/esm/Typography/index.js"));
 
@@ -21922,6 +22106,8 @@ var styles_1 = __webpack_require__(/*! @material-ui/core/styles */ "./node_modul
 var TextField_1 = __importDefault(__webpack_require__(/*! @material-ui/core/TextField */ "./node_modules/@material-ui/core/esm/TextField/index.js"));
 
 var Button_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Button */ "./node_modules/@material-ui/core/esm/Button/index.js"));
+
+var Add_1 = __importDefault(__webpack_require__(/*! @material-ui/icons/Add */ "./node_modules/@material-ui/icons/Add.js"));
 
 var Slide_1 = __importDefault(__webpack_require__(/*! @material-ui/core/Slide */ "./node_modules/@material-ui/core/esm/Slide/index.js"));
 
@@ -22044,7 +22230,8 @@ var Products = function Products() {
       backgroundColor: "#fca10d",
       outline: "none"
     },
-    size: "large"
+    size: "large",
+    startIcon: react_1["default"].createElement(Add_1["default"], null)
   }, "Create A Product")), react_1["default"].createElement("div", {
     style: {
       display: "flex",
@@ -22078,7 +22265,8 @@ var Products = function Products() {
       backgroundColor: "#fca10d",
       marginRight: "1%"
     },
-    variant: "contained"
+    variant: "contained",
+    startIcon: react_1["default"].createElement(FindInPage_1["default"], null)
   }, "Search"), react_1["default"].createElement(Button_1["default"], {
     onClick: handleSearchClear,
     style: {
@@ -22088,7 +22276,8 @@ var Products = function Products() {
       backgroundColor: "#fca10d",
       marginLeft: "1%"
     },
-    variant: "contained"
+    variant: "contained",
+    startIcon: react_1["default"].createElement(ClearAll_1["default"], null)
   }, "Clear")))), react_1["default"].createElement("div", {
     style: {
       marginTop: "3%",
@@ -22172,6 +22361,7 @@ var EPages;
   EPages["EditAccount"] = "editAccount";
   EPages["Lists"] = "lists";
   EPages["Products"] = "products";
+  EPages["Extras"] = "extras";
 })(EPages = exports.EPages || (exports.EPages = {}));
 
 /***/ }),
@@ -22220,6 +22410,8 @@ var enums_1 = __webpack_require__(/*! ./enums */ "./resources/js/pages/enums.ts"
 
 var Account_1 = __importDefault(__webpack_require__(/*! ./Account */ "./resources/js/pages/Account/index.tsx"));
 
+var Extras_1 = __importDefault(__webpack_require__(/*! ./Extras */ "./resources/js/pages/Extras/index.tsx"));
+
 var Login_1 = __importDefault(__webpack_require__(/*! ./Login */ "./resources/js/pages/Login/index.tsx"));
 
 var Lists_1 = __importDefault(__webpack_require__(/*! ./Lists */ "./resources/js/pages/Lists/index.tsx"));
@@ -22260,6 +22452,12 @@ var authed = [{
   label: "Products",
   path: "/products",
   Component: Products_1["default"],
+  authed: true
+}, {
+  name: enums_1.EPages.Extras,
+  label: "Extras",
+  path: "/extras",
+  Component: Extras_1["default"],
   authed: true
 }];
 exports.pages = __spreadArrays(unauthed, authed);

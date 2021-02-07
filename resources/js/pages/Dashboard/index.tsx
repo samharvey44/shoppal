@@ -169,6 +169,11 @@ const Dashboard: React.FC = () => {
                                                     style={{
                                                         outline: "none",
                                                     }}
+                                                    onClick={() => {
+                                                        history.push(
+                                                            "/products"
+                                                        );
+                                                    }}
                                                 >
                                                     <Grid
                                                         container
@@ -290,7 +295,6 @@ const Dashboard: React.FC = () => {
                                             <CardActionArea
                                                 style={{
                                                     outline: "none",
-                                                    textDecoration: "none",
                                                 }}
                                                 onClick={() => {
                                                     history.push(`/lists`);
@@ -345,6 +349,9 @@ const Dashboard: React.FC = () => {
                                             <CardActionArea
                                                 style={{
                                                     outline: "none",
+                                                }}
+                                                onClick={() => {
+                                                    history.push(`/products`);
                                                 }}
                                             >
                                                 <Grid

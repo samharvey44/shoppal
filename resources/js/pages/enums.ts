@@ -5,4 +5,5 @@ export enum EPages {
     EditAccount = "editAccount",
     Lists = "lists",
     Products = "products",
+    Extras = "extras",
 }

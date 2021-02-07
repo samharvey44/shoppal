@@ -81,6 +81,9 @@ const NavBar: React.FC<{ page: any }> = ({ page, children }) => {
                                         </Button>
 
                                         <Button
+                                            onClick={() => {
+                                                history.push("/extras");
+                                            }}
                                             size="large"
                                             variant="contained"
                                             style={{
@@ -195,6 +198,9 @@ const NavBar: React.FC<{ page: any }> = ({ page, children }) => {
                                     </Button>
 
                                     <Button
+                                        onClick={() => {
+                                            history.push("/extras");
+                                        }}
                                         startIcon={<ExtensionIcon />}
                                         size="large"
                                         variant="contained"
@@ -330,6 +336,9 @@ const NavBar: React.FC<{ page: any }> = ({ page, children }) => {
                                 </Button>
 
                                 <Button
+                                    onClick={() => {
+                                        history.push("/extras");
+                                    }}
                                     startIcon={<ExtensionIcon />}
                                     size="large"
                                     variant="contained"
